@@ -7,6 +7,7 @@
     <meta name="description" content="A free online Behringer Pro VS Mini MIDI editor. Edit patch parameters via MIDI CC.">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=VT323&family=Barlow+Condensed:wght@400;500;600;700&display=swap">
+    <script src="waveforms_svg_pass3/waveform-index.js" defer></script>
     <script src="app.js" defer></script>
 </head>
 <body>
@@ -109,20 +110,28 @@
             <section class="control-box voice-box">
                 <h3>VOICE 1</h3>
                 <div class="voice-screen">ProVS</div>
+                <div class="wave-preview">
+                    <img id="voice-a-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
+                    <p id="voice-a-wave-caption">000 - TWANG</p>
+                </div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-a-coarse">COARSE</label><input type="range" id="voice-a-coarse" min="0" max="99" value="50" data-cc="115" data-label="VOICE A COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-a-fine">FINE</label><input type="range" id="voice-a-fine" min="0" max="99" value="50" data-cc="111" data-label="VOICE A FINE" data-format="signed50"></div>
-                    <div class="parameter-row"><label for="voice-a-wave">WAVE</label><input type="range" id="voice-a-wave" min="0" max="127" value="0" data-cc="24" data-label="VOICE A WAVE"></div>
+                    <div class="parameter-row"><label for="voice-a-wave">WAVE</label><input type="range" id="voice-a-wave" min="0" max="127" value="0" data-cc="24" data-label="VOICE A WAVE" data-wave-preview="voice-a-wave-image" data-wave-caption="voice-a-wave-caption"></div>
                 </div>
             </section>
 
             <section class="control-box voice-box">
                 <h3>VOICE 2</h3>
                 <div class="voice-screen">ProVS</div>
+                <div class="wave-preview">
+                    <img id="voice-b-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
+                    <p id="voice-b-wave-caption">000 - TWANG</p>
+                </div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-b-coarse">COARSE</label><input type="range" id="voice-b-coarse" min="0" max="99" value="50" data-cc="116" data-label="VOICE B COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-b-fine">FINE</label><input type="range" id="voice-b-fine" min="0" max="99" value="50" data-cc="112" data-label="VOICE B FINE" data-format="signed50"></div>
-                    <div class="parameter-row"><label for="voice-b-wave">WAVE</label><input type="range" id="voice-b-wave" min="0" max="127" value="0" data-cc="25" data-label="VOICE B WAVE"></div>
+                    <div class="parameter-row"><label for="voice-b-wave">WAVE</label><input type="range" id="voice-b-wave" min="0" max="127" value="0" data-cc="25" data-label="VOICE B WAVE" data-wave-preview="voice-b-wave-image" data-wave-caption="voice-b-wave-caption"></div>
                 </div>
             </section>
 
@@ -166,20 +175,28 @@
             <section class="control-box voice-box">
                 <h3>VOICE 3</h3>
                 <div class="voice-screen">ProVS</div>
+                <div class="wave-preview">
+                    <img id="voice-c-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
+                    <p id="voice-c-wave-caption">000 - TWANG</p>
+                </div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-c-coarse">COARSE</label><input type="range" id="voice-c-coarse" min="0" max="99" value="50" data-cc="117" data-label="VOICE C COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-c-fine">FINE</label><input type="range" id="voice-c-fine" min="0" max="99" value="50" data-cc="113" data-label="VOICE C FINE" data-format="signed50"></div>
-                    <div class="parameter-row"><label for="voice-c-wave">WAVE</label><input type="range" id="voice-c-wave" min="0" max="127" value="0" data-cc="26" data-label="VOICE C WAVE"></div>
+                    <div class="parameter-row"><label for="voice-c-wave">WAVE</label><input type="range" id="voice-c-wave" min="0" max="127" value="0" data-cc="26" data-label="VOICE C WAVE" data-wave-preview="voice-c-wave-image" data-wave-caption="voice-c-wave-caption"></div>
                 </div>
             </section>
 
             <section class="control-box voice-box">
                 <h3>VOICE 4</h3>
                 <div class="voice-screen">ProVS</div>
+                <div class="wave-preview">
+                    <img id="voice-d-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
+                    <p id="voice-d-wave-caption">000 - TWANG</p>
+                </div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-d-coarse">COARSE</label><input type="range" id="voice-d-coarse" min="0" max="99" value="50" data-cc="118" data-label="VOICE D COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-d-fine">FINE</label><input type="range" id="voice-d-fine" min="0" max="99" value="50" data-cc="114" data-label="VOICE D FINE" data-format="signed50"></div>
-                    <div class="parameter-row"><label for="voice-d-wave">WAVE</label><input type="range" id="voice-d-wave" min="0" max="127" value="0" data-cc="27" data-label="VOICE D WAVE"></div>
+                    <div class="parameter-row"><label for="voice-d-wave">WAVE</label><input type="range" id="voice-d-wave" min="0" max="127" value="0" data-cc="27" data-label="VOICE D WAVE" data-wave-preview="voice-d-wave-image" data-wave-caption="voice-d-wave-caption"></div>
                 </div>
             </section>
 
@@ -287,14 +304,14 @@
         <p>This software is provided as-is, without warranty of any kind. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
     </div>
 
-    <div id="version-number">v0.22</div>
+    <div id="version-number">v0.23</div>
 
     <div id="about-modal" class="modal-hidden" aria-hidden="true">
         <div id="about-modal-content" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
             <button id="about-modal-close" aria-label="Close info popup" type="button">&times;</button>
             <p id="about-modal-title">Pro VS Mini MIDI Editor</p>
-            <p>Version 0.22</p>
-            <p>Documentation table typography and spacing parity pass.</p>
+            <p>Version 0.23</p>
+            <p>Integrated pass3 waveform SVG previews for all four voice wave controls.</p>
             <p><a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
         </div>
     </div>

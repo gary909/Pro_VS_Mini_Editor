@@ -40,6 +40,48 @@ const INIT_VALUES = {
     "voice-d-coarse": 50
 };
 
+const WAVEFORM_BASE_PATH = "waveforms_svg_pass3/";
+const DEFAULT_WAVEFORM_ENTRY = { n: 0, name: "Twang", file: "000-twang.svg" };
+const WAVEFORM_INDEX = Array.isArray(window.WAVEFORM_INDEX) && window.WAVEFORM_INDEX.length > 0
+    ? window.WAVEFORM_INDEX
+    : [DEFAULT_WAVEFORM_ENTRY];
+const WAVEFORM_BY_NUMBER = new Map(WAVEFORM_INDEX.map((entry) => [entry.n, entry]));
+
+function getWaveformEntry(value) {
+    const numericValue = Number.isFinite(value) ? value : 0;
+    const clampedValue = Math.max(0, Math.min(127, numericValue));
+    return WAVEFORM_BY_NUMBER.get(clampedValue) || DEFAULT_WAVEFORM_ENTRY;
+}
+
+function setWavePreviewFromControl(control) {
+    if (!control || !control.dataset.wavePreview) {
+        return;
+    }
+
+    const value = parseInt(control.value, 10);
+    const entry = getWaveformEntry(value);
+    const image = document.getElementById(control.dataset.wavePreview);
+
+    if (image) {
+        image.src = `${WAVEFORM_BASE_PATH}${entry.file}`;
+        image.alt = `Waveform ${entry.n} ${entry.name}`;
+    }
+
+    if (control.dataset.waveCaption) {
+        const caption = document.getElementById(control.dataset.waveCaption);
+        if (caption) {
+            const numberText = String(entry.n).padStart(3, "0");
+            caption.textContent = `${numberText} - ${entry.name.toUpperCase()}`;
+        }
+    }
+}
+
+function syncAllWavePreviews() {
+    ALL_CONTROLS.forEach((control) => {
+        setWavePreviewFromControl(control);
+    });
+}
+
 function getRandomInt(min, max) {
     const low = Math.ceil(min);
     const high = Math.floor(max);
@@ -196,6 +238,7 @@ function attachControlListeners() {
             sendMidiCC(cc, value);
             const displayValue = formatValue(control, value);
             updateTempStatus(`${label}: ${displayValue}`);
+            setWavePreviewFromControl(control);
         });
 
         control.addEventListener("change", restoreStatusText);
@@ -211,6 +254,7 @@ function initPatch() {
         const value = Object.prototype.hasOwnProperty.call(INIT_VALUES, control.id) ? INIT_VALUES[control.id] : fallbackValue;
         control.value = value;
         sendMidiCC(cc, value);
+        setWavePreviewFromControl(control);
     });
 
     updateTempStatus("PATCH INITIALIZED");
@@ -225,6 +269,7 @@ function randomPatch() {
         const randomValue = getRandomInt(min, max);
         control.value = randomValue;
         sendMidiCC(cc, randomValue);
+        setWavePreviewFromControl(control);
     });
 
     updateTempStatus("RANDOM PATCH SENT");
@@ -374,6 +419,7 @@ function setupNavAndModal() {
     }
 }
 
+syncAllWavePreviews();
 attachControlListeners();
 setupNavAndModal();
 
