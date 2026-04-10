@@ -81,8 +81,34 @@
 
     <main id="controls">
         <div class="rack-frame">
+            <div class="rack-top">
+                <div class="logo-cluster">
+                    <div class="logo-main">Pro<span>VS</span><small>MINI</small></div>
+                    <div class="logo-sub">ProVS</div>
+                </div>
+                <div class="up-switches" aria-hidden="true">
+                    <span><b></b>UP</span>
+                    <span><b></b>UP</span>
+                    <span><b></b>UP</span>
+                    <span><b></b>UP</span>
+                    <span><b></b>UP</span>
+                    <span><b></b>UP</span>
+                </div>
+            </div>
+
+            <svg class="rack-overlay" viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <line x1="14" y1="66" x2="1586" y2="66"></line>
+                <line x1="14" y1="286" x2="1586" y2="286"></line>
+                <line x1="14" y1="506" x2="1586" y2="506"></line>
+                <circle cx="18" cy="18" r="6"></circle>
+                <circle cx="1582" cy="18" r="6"></circle>
+                <circle cx="18" cy="502" r="6"></circle>
+                <circle cx="1582" cy="502" r="6"></circle>
+            </svg>
+
             <section class="control-box voice-box">
                 <h3>VOICE 1</h3>
+                <div class="voice-screen">ProVS</div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-a-coarse">COARSE</label><input type="range" id="voice-a-coarse" min="0" max="99" value="50" data-cc="115" data-label="VOICE A COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-a-fine">FINE</label><input type="range" id="voice-a-fine" min="0" max="99" value="50" data-cc="111" data-label="VOICE A FINE" data-format="signed50"></div>
@@ -92,6 +118,7 @@
 
             <section class="control-box voice-box">
                 <h3>VOICE 2</h3>
+                <div class="voice-screen">ProVS</div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-b-coarse">COARSE</label><input type="range" id="voice-b-coarse" min="0" max="99" value="50" data-cc="116" data-label="VOICE B COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-b-fine">FINE</label><input type="range" id="voice-b-fine" min="0" max="99" value="50" data-cc="112" data-label="VOICE B FINE" data-format="signed50"></div>
@@ -126,7 +153,7 @@
                 <div class="wave-key"><span>TRI</span><span>SQR</span><span>SAW</span></div>
             </section>
 
-            <section class="control-box env-box">
+            <section class="control-box env-box amp-env-box">
                 <h3>AMP ENV</h3>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="amp-attack">ATK</label><input type="range" id="amp-attack" min="0" max="99" value="0" data-cc="81" data-label="AMP ATTACK"></div>
@@ -138,6 +165,7 @@
 
             <section class="control-box voice-box">
                 <h3>VOICE 3</h3>
+                <div class="voice-screen">ProVS</div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-c-coarse">COARSE</label><input type="range" id="voice-c-coarse" min="0" max="99" value="50" data-cc="117" data-label="VOICE C COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-c-fine">FINE</label><input type="range" id="voice-c-fine" min="0" max="99" value="50" data-cc="113" data-label="VOICE C FINE" data-format="signed50"></div>
@@ -147,6 +175,7 @@
 
             <section class="control-box voice-box">
                 <h3>VOICE 4</h3>
+                <div class="voice-screen">ProVS</div>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="voice-d-coarse">COARSE</label><input type="range" id="voice-d-coarse" min="0" max="99" value="50" data-cc="118" data-label="VOICE D COARSE" data-format="signed50"></div>
                     <div class="parameter-row"><label for="voice-d-fine">FINE</label><input type="range" id="voice-d-fine" min="0" max="99" value="50" data-cc="114" data-label="VOICE D FINE" data-format="signed50"></div>
@@ -186,7 +215,7 @@
                 </div>
             </section>
 
-            <section class="control-box env-box">
+            <section class="control-box env-box filter-env-box">
                 <h3>FILTER ENV</h3>
                 <div class="slider-row">
                     <div class="parameter-row"><label for="filter-attack">ATK</label><input type="range" id="filter-attack" min="0" max="99" value="0" data-cc="85" data-label="FILTER ATTACK"></div>
@@ -258,14 +287,14 @@
         <p>This software is provided as-is, without warranty of any kind. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
     </div>
 
-    <div id="version-number">v0.20</div>
+    <div id="version-number">v0.21</div>
 
     <div id="about-modal" class="modal-hidden" aria-hidden="true">
         <div id="about-modal-content" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
             <button id="about-modal-close" aria-label="Close info popup" type="button">&times;</button>
             <p id="about-modal-title">Pro VS Mini MIDI Editor</p>
-            <p>Version 0.20</p>
-            <p>Second-pass layout and CC mapping refresh.</p>
+            <p>Version 0.21</p>
+            <p>Visual parity polish pass with refined rack styling.</p>
             <p><a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
         </div>
     </div>

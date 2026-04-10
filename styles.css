@@ -162,10 +162,110 @@ a {
     border-radius: 4px;
     background: linear-gradient(180deg, #2d3038 0, #242730 100%);
     box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.34);
+    position: relative;
     display: grid;
     grid-template-columns: repeat(24, 1fr);
+    gap: 8px;
+    padding: 12px;
+}
+
+.rack-top {
+    grid-column: 1 / -1;
+    min-height: 52px;
+    border: 1px solid #3a3f4a;
+    background: linear-gradient(180deg, #2a2d35 0, #24272f 100%);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    z-index: 2;
+}
+
+.rack-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rack-overlay line {
+    stroke: rgba(143, 158, 188, 0.2);
+    stroke-width: 1;
+}
+
+.rack-overlay circle {
+    fill: #20242d;
+    stroke: rgba(131, 149, 182, 0.36);
+    stroke-width: 1.2;
+}
+
+.logo-cluster {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-main {
+    background: #1d2027;
+    border: 1px solid #343b4b;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-family: "Orbitron", sans-serif;
+    color: #2d99e1;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo-main span {
+    color: #5cb3ff;
+}
+
+.logo-main small {
+    margin-left: 6px;
+    font-size: 11px;
+    color: #e8edf7;
+    letter-spacing: 1px;
+}
+
+.logo-sub {
+    background: #1d2027;
+    border: 1px solid #343b4b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family: "Orbitron", sans-serif;
+    color: #29afff;
+    font-size: 30px;
+    line-height: 0.8;
+}
+
+.up-switches {
+    display: flex;
     gap: 10px;
-    padding: 14px;
+    align-items: flex-end;
+}
+
+.up-switches span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    color: #d7e7ff;
+    letter-spacing: 0.7px;
+    gap: 3px;
+}
+
+.up-switches span b {
+    width: 12px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #1d75d8;
+    background: linear-gradient(180deg, #3298f0 0, #2a67b8 100%);
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
 }
 
 .control-box {
@@ -181,7 +281,8 @@ a {
     border: 2px solid var(--panel-border);
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 2px 0 var(--panel-shadow);
+    box-shadow: 0 2px 0 var(--panel-shadow), inset 0 0 0 1px rgba(132, 180, 245, 0.14);
+    z-index: 2;
 }
 
 .voice-box {
@@ -212,13 +313,21 @@ a {
     grid-column: span 4;
 }
 
+.amp-env-box {
+    grid-column: span 6;
+}
+
+.filter-env-box {
+    grid-column: span 4;
+}
+
 .slider-row {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     gap: 10px;
-    min-height: 126px;
-    padding: 10px 8px 8px;
+    min-height: 140px;
+    padding: 6px 8px 8px;
 }
 
 .single-slider {
@@ -230,15 +339,87 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 7px;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.parameter-row::before {
+    content: "";
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 96px;
+    border-radius: 8px;
+    border: 1px solid #252c39;
+    background:
+        repeating-linear-gradient(
+            180deg,
+            rgba(181, 197, 223, 0.26),
+            rgba(181, 197, 223, 0.26) 1px,
+            transparent 1px,
+            transparent 11px
+        ),
+        linear-gradient(180deg, #12161d 0, #1a1f28 100%);
+    box-shadow: inset 0 0 0 1px rgba(36, 45, 59, 0.75);
+    z-index: 0;
+}
+
+.voice-screen {
+    margin: 8px auto 2px;
+    width: 74%;
+    border: 1px solid #2b3443;
+    border-radius: 3px;
+    padding: 5px 8px;
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+    font-size: 18px;
+    color: #1eb2ff;
+    background: linear-gradient(180deg, #22262d 0, #181c23 100%);
+    box-shadow: inset 0 0 14px rgba(46, 155, 229, 0.2);
 }
 
 .control-box input[type="range"] {
     writing-mode: bt-lr;
     -webkit-appearance: slider-vertical;
     appearance: slider-vertical;
-    width: 11px;
-    height: 82px;
+    width: 12px;
+    height: 92px;
     accent-color: #77adff;
+    position: relative;
+    z-index: 2;
+}
+
+.control-box input[type="range"]::-webkit-slider-runnable-track {
+    width: 12px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #0e1117 0, #191d25 100%);
+    border: 1px solid #1e2430;
+}
+
+.control-box input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid #12161f;
+    background: linear-gradient(180deg, #d9deea 0, #8f97a6 100%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.control-box input[type="range"]::-moz-range-track {
+    border-radius: 6px;
+    background: linear-gradient(180deg, #0e1117 0, #191d25 100%);
+    border: 1px solid #1e2430;
+}
+
+.control-box input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid #12161f;
+    background: linear-gradient(180deg, #d9deea 0, #8f97a6 100%);
 }
 
 .wave-key,
@@ -556,6 +737,13 @@ body.privacy-page .control-box p {
         grid-template-columns: repeat(12, 1fr);
     }
 
+    .rack-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        min-height: 88px;
+    }
+
     .voice-box,
     .lfo-box,
     .env-box,
@@ -563,6 +751,11 @@ body.privacy-page .control-box p {
     .chorus-box,
     .filter-box,
     .mini-box {
+        grid-column: span 6;
+    }
+
+    .amp-env-box,
+    .filter-env-box {
         grid-column: span 6;
     }
 }
@@ -598,6 +791,15 @@ body.privacy-page .control-box p {
 
     .rack-frame {
         grid-template-columns: 1fr;
+    }
+
+    .logo-sub {
+        font-size: 22px;
+    }
+
+    .up-switches {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .voice-box,
