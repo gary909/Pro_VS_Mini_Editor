@@ -439,7 +439,7 @@ a {
     margin-bottom: 14px;
     background: #e5e5e5;
     border: 1px solid #d0d0d0;
-    border-radius: 2px;
+    border-radius: 1px;
     padding: 12px 14px 14px;
     color: #1f232b;
 }
@@ -448,53 +448,55 @@ a {
     display: inline-block;
     background: #666d78;
     color: #f6f8fe;
-    border-radius: 7px;
-    padding: 6px 12px;
-    margin-bottom: 4px;
+    border-radius: 10px;
+    padding: 5px 12px;
+    margin-bottom: 5px;
     font-style: normal;
     font-size: 13px;
+    font-family: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .cc-reference p {
     margin: 3px 0 9px;
-    font-size: 15px;
-    line-height: 1.1;
-    letter-spacing: 0.2px;
-    font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.12;
+    letter-spacing: 0.15px;
+    font-family: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .cc-table-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    gap: 18px;
 }
 
 .cc-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 13px;
     background: #e5e5e5;
-    font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .cc-table th {
     text-align: left;
     background-color: #666d78;
     color: #f6f8fe;
-    padding: 6px 10px;
+    padding: 5px 10px;
     border-right: 1px solid #8f95a0;
-    font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.4px;
+    font-family: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.35px;
     font-weight: 600;
 }
 
 .cc-table td {
-    padding: 5px 9px;
+    padding: 4px 9px;
     border-bottom: 1px solid #a4a8af;
     border-right: 1px solid #bcc0c6;
     color: #232831;
-    line-height: 1.2;
+    line-height: 1.16;
+    letter-spacing: 0.1px;
 }
 
 .cc-table th:last-child,
@@ -503,9 +505,9 @@ a {
 }
 
 .cc-table thead th:first-child {
-    width: 74px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    width: 78px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .cc-table thead th:nth-child(2) {
@@ -513,9 +515,9 @@ a {
 }
 
 .cc-table thead th:last-child {
-    width: 98px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    width: 104px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .cc-table tbody tr:last-child td {
