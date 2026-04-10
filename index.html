@@ -1,320 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Pro VS Mini MIDI Editor</title>
-	<meta name="description" content="A free online Behringer Pro VS Mini MIDI editor. Edit patch parameters via MIDI CC.">
-
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=VT323&display=swap">
-	<script src="app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro VS Mini MIDI Editor</title>
+    <meta name="description" content="A free online Behringer Pro VS Mini MIDI editor. Edit patch parameters via MIDI CC.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=VT323&display=swap">
+    <script src="app.js" defer></script>
 </head>
 <body>
-	<div class="hamburger-menu" id="hamburger-menu" aria-label="Open menu" role="button" tabindex="0">
-		<div class="bar"></div>
-		<div class="bar"></div>
-		<div class="bar"></div>
-	</div>
+    <div class="hamburger-menu" id="hamburger-menu" aria-label="Open menu" role="button" tabindex="0">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 
-	<nav class="side-nav" id="side-nav" aria-label="Main navigation">
-		<a href="#" class="close-btn" id="close-btn" aria-label="Close menu">&times;</a>
-		<a href="#" id="about-btn" class="hamb-text">PRO VS MINI EDITOR</a>
+    <nav class="side-nav" id="side-nav" aria-label="Main navigation">
+        <a href="#" class="close-btn" id="close-btn" aria-label="Close menu">&times;</a>
+        <a href="#" id="about-btn" class="hamb-text">PRO VS MINI EDITOR</a>
 
-		<div class="accordion-item">
-			<button class="accordion-header" type="button">GUIDE</button>
-			<div class="accordion-content">
-				<p class="guide-note">Connect your Pro VS Mini via USB and allow MIDI access in your browser (Safari not supported).</p>
-				<p class="guide-note">Pick your synth from the MIDI device selector, then use controls to send CC data live.</p>
-				<p class="guide-note">To store sounds on hardware, use the synth's save/write flow after editing.</p>
-			</div>
-		</div>
+        <div class="accordion-item">
+            <button class="accordion-header" type="button">GUIDE</button>
+            <div class="accordion-content">
+                <p class="guide-note">Connect your Pro VS Mini by USB and allow MIDI access in your browser (Safari is not supported).</p>
+                <p class="guide-note">Choose your synth in the MIDI device selector, then move controls to transmit MIDI CC data.</p>
+                <p class="guide-note">To save sounds, complete write/save on the hardware after editing.</p>
+            </div>
+        </div>
 
-		<div class="accordion-item">
-			<button class="accordion-header" type="button">OTHER EDITORS</button>
-			<div class="accordion-content">
-				<a class="link-text" href="https://github.com/gary909/JT4000M-MIDI-EDITOR" target="_blank" rel="noopener noreferrer">JT4000M MICRO EDITOR</a>
-				<a class="link-text" href="https://github.com/gary909/Behringer-UB1-Midi-Editor" target="_blank" rel="noopener noreferrer">UB-1 MICRO EDITOR</a>
-				<a class="link-text" href="https://github.com/gary909/Behringer-CZ1-Midi-Editor" target="_blank" rel="noopener noreferrer">CZ-1 MINI EDITOR</a>
-				<a class="link-text" href="https://github.com/gary909/JT-Midi-Editor" target="_blank" rel="noopener noreferrer">JT MINI EDITOR</a>
-			</div>
-		</div>
+        <div class="accordion-item">
+            <button class="accordion-header" type="button">OTHER EDITORS</button>
+            <div class="accordion-content">
+                <a class="link-text" href="https://github.com/gary909/JT4000M-MIDI-EDITOR" target="_blank" rel="noopener noreferrer">JT4000M MICRO EDITOR</a>
+                <a class="link-text" href="https://github.com/gary909/Behringer-UB1-Midi-Editor" target="_blank" rel="noopener noreferrer">UB-1 MICRO EDITOR</a>
+                <a class="link-text" href="https://github.com/gary909/Behringer-CZ1-Midi-Editor" target="_blank" rel="noopener noreferrer">CZ-1 MINI EDITOR</a>
+                <a class="link-text" href="https://github.com/gary909/JT-Midi-Editor" target="_blank" rel="noopener noreferrer">JT MINI EDITOR</a>
+            </div>
+        </div>
 
-		<div class="accordion-item">
-			<button class="accordion-header" type="button">PRO VS MINI MANUAL</button>
-			<div class="accordion-content">
-				<a class="link-text" href="https://www.behringer.com" target="_blank" rel="noopener noreferrer">LINK TO OFFICIAL MANUAL</a>
-			</div>
-		</div>
+        <div class="accordion-item">
+            <button class="accordion-header" type="button">PRO VS MINI MANUAL</button>
+            <div class="accordion-content">
+                <a class="link-text" href="https://www.behringer.com" target="_blank" rel="noopener noreferrer">LINK TO OFFICIAL MANUAL</a>
+            </div>
+        </div>
 
-		<div class="nav-note-wrap">
-			<p class="nav-note"><strong>NOTE</strong>: Community-made editor for the Pro VS Mini. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a></p>
-		</div>
-	</nav>
+        <div class="nav-note-wrap">
+            <p class="nav-note"><strong>NOTE</strong>: Community-made editor for Pro VS Mini. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
+        </div>
+    </nav>
 
-	<header id="main-header">
-		<div id="header-block">
-			<h1>PRO VS</h1>
-			<h2>MINI</h2>
-		</div>
+    <header id="main-header">
+        <div id="header-block">
+            <h1>PRO VS</h1>
+            <h2>MINI</h2>
+        </div>
 
-		<div id="midi-status">
-			<label class="outer-label" for="midi-output-select">SELECT MIDI DEVICE</label>
-			<select id="midi-output-select">
-				<option value="">-- No Devices Found --</option>
-			</select>
-			<span id="midi-device-status-text"></span>
-		</div>
+        <div id="midi-status">
+            <label class="outer-label" for="midi-output-select">SELECT MIDI DEVICE</label>
+            <select id="midi-output-select">
+                <option value="">-- No Devices Found --</option>
+            </select>
+            <span id="midi-device-status-text"></span>
+        </div>
 
-		<div id="patch-controls">
-			<div class="patch-button-group">
-				<label class="outer-label" for="init-patch-button">INIT PATCH</label>
-				<button id="init-patch-button" type="button"></button>
-			</div>
-			<div class="patch-button-group">
-				<label class="outer-label" for="random-patch-button">RANDOM</label>
-				<button id="random-patch-button" type="button"></button>
-			</div>
-		</div>
+        <div id="patch-controls">
+            <div class="patch-button-group">
+                <label class="outer-label" for="init-patch-button">INIT</label>
+                <button id="init-patch-button" type="button"></button>
+            </div>
+            <div class="patch-button-group">
+                <label class="outer-label" for="random-patch-button">RANDOM</label>
+                <button id="random-patch-button" type="button"></button>
+            </div>
+        </div>
 
-		<div id="header-spacer"></div>
-	</header>
+        <div id="header-spacer"></div>
+    </header>
 
-	<main id="controls">
-		<section class="control-box">
-			<h3>VOICE 1</h3>
-			<div class="parameter-row">
-				<label for="voice-a-wave">WAVE</label>
-				<input type="range" id="voice-a-wave" min="0" max="127" value="0" data-cc="24" data-label="VOICE A WAVE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-a-coarse">COARSE</label>
-				<input type="range" id="voice-a-coarse" min="0" max="127" value="64" data-cc="115" data-label="VOICE A COARSE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-a-fine">FINE</label>
-				<input type="range" id="voice-a-fine" min="0" max="127" value="64" data-cc="111" data-label="VOICE A FINE">
-			</div>
-		</section>
+    <main id="controls">
+        <div class="rack-frame">
+            <section class="control-box voice-box">
+                <h3>VOICE 1</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="voice-a-coarse">COARSE</label><input type="range" id="voice-a-coarse" min="0" max="99" value="50" data-cc="115" data-label="VOICE A COARSE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-a-fine">FINE</label><input type="range" id="voice-a-fine" min="0" max="99" value="50" data-cc="111" data-label="VOICE A FINE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-a-wave">WAVE</label><input type="range" id="voice-a-wave" min="0" max="127" value="0" data-cc="24" data-label="VOICE A WAVE"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>VOICE 2</h3>
-			<div class="parameter-row">
-				<label for="voice-b-wave">WAVE</label>
-				<input type="range" id="voice-b-wave" min="0" max="127" value="0" data-cc="25" data-label="VOICE B WAVE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-b-coarse">COARSE</label>
-				<input type="range" id="voice-b-coarse" min="0" max="127" value="64" data-cc="116" data-label="VOICE B COARSE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-b-fine">FINE</label>
-				<input type="range" id="voice-b-fine" min="0" max="127" value="64" data-cc="112" data-label="VOICE B FINE">
-			</div>
-		</section>
+            <section class="control-box voice-box">
+                <h3>VOICE 2</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="voice-b-coarse">COARSE</label><input type="range" id="voice-b-coarse" min="0" max="99" value="50" data-cc="116" data-label="VOICE B COARSE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-b-fine">FINE</label><input type="range" id="voice-b-fine" min="0" max="99" value="50" data-cc="112" data-label="VOICE B FINE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-b-wave">WAVE</label><input type="range" id="voice-b-wave" min="0" max="127" value="0" data-cc="25" data-label="VOICE B WAVE"></div>
+                </div>
+            </section>
 
-		<section class="control-box compact-box">
-			<h3>MOD TIME</h3>
-			<div class="parameter-row">
-				<label for="mod-time">AMT</label>
-				<input type="range" id="mod-time" min="0" max="127" value="0" data-cc="1" data-label="MODULATION">
-			</div>
-		</section>
+            <section class="control-box mini-box">
+                <h3>MOD TIME</h3>
+                <div class="slider-row single-slider">
+                    <div class="parameter-row"><label for="mod-time">AMT</label><input type="range" id="mod-time" min="0" max="127" value="0" data-cc="1" data-label="MODULATION"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>LFO 1</h3>
-			<div class="parameter-row">
-				<label for="lfo1-wave">WAVE</label>
-				<input type="range" id="lfo1-wave" min="0" max="127" value="0" data-cc="54" data-label="LFO 1 WAVE">
-			</div>
-			<div class="parameter-row">
-				<label for="lfo1-rate">RATE</label>
-				<input type="range" id="lfo1-rate" min="0" max="99" value="0" data-cc="72" data-label="LFO 1 RATE">
-			</div>
-			<div class="parameter-row">
-				<label for="lfo1-amt">AMT</label>
-				<input type="range" id="lfo1-amt" min="0" max="99" value="0" data-cc="70" data-label="LFO 1 AMOUNT">
-			</div>
-		</section>
+            <section class="control-box lfo-box">
+                <h3>LFO 1</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="lfo1-wave">WAVE</label><input type="range" id="lfo1-wave" min="0" max="127" value="0" data-cc="54" data-label="LFO 1 WAVE" data-format="wave3"></div>
+                    <div class="parameter-row"><label for="lfo1-rate">RATE</label><input type="range" id="lfo1-rate" min="0" max="99" value="0" data-cc="72" data-label="LFO 1 RATE"></div>
+                    <div class="parameter-row"><label for="lfo1-amt">AMT</label><input type="range" id="lfo1-amt" min="0" max="99" value="0" data-cc="70" data-label="LFO 1 AMOUNT"></div>
+                </div>
+                <div class="wave-key"><span>TRI</span><span>SQR</span><span>SAW</span></div>
+            </section>
 
-		<section class="control-box">
-			<h3>LFO 2</h3>
-			<div class="parameter-row">
-				<label for="lfo2-wave">WAVE</label>
-				<input type="range" id="lfo2-wave" min="0" max="127" value="0" data-cc="55" data-label="LFO 2 WAVE">
-			</div>
-			<div class="parameter-row">
-				<label for="lfo2-rate">RATE</label>
-				<input type="range" id="lfo2-rate" min="0" max="99" value="0" data-cc="73" data-label="LFO 2 RATE">
-			</div>
-			<div class="parameter-row">
-				<label for="lfo2-amt">AMT</label>
-				<input type="range" id="lfo2-amt" min="0" max="99" value="0" data-cc="28" data-label="LFO 2 AMOUNT">
-			</div>
-		</section>
+            <section class="control-box lfo-box">
+                <h3>LFO 2</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="lfo2-wave">WAVE</label><input type="range" id="lfo2-wave" min="0" max="127" value="0" data-cc="55" data-label="LFO 2 WAVE" data-format="wave3"></div>
+                    <div class="parameter-row"><label for="lfo2-rate">RATE</label><input type="range" id="lfo2-rate" min="0" max="99" value="0" data-cc="73" data-label="LFO 2 RATE"></div>
+                    <div class="parameter-row"><label for="lfo2-amt">AMT</label><input type="range" id="lfo2-amt" min="0" max="99" value="0" data-cc="28" data-label="LFO 2 AMOUNT"></div>
+                </div>
+                <div class="wave-key"><span>TRI</span><span>SQR</span><span>SAW</span></div>
+            </section>
 
-		<section class="control-box">
-			<h3>AMP ENV</h3>
-			<div class="parameter-row">
-				<label for="amp-attack">ATK</label>
-				<input type="range" id="amp-attack" min="0" max="99" value="0" data-cc="81" data-label="AMP ATTACK">
-			</div>
-			<div class="parameter-row">
-				<label for="amp-decay">DEC</label>
-				<input type="range" id="amp-decay" min="0" max="99" value="0" data-cc="82" data-label="AMP DECAY">
-			</div>
-			<div class="parameter-row">
-				<label for="amp-sustain">SUS</label>
-				<input type="range" id="amp-sustain" min="0" max="99" value="99" data-cc="83" data-label="AMP SUSTAIN">
-			</div>
-			<div class="parameter-row">
-				<label for="amp-release">REL</label>
-				<input type="range" id="amp-release" min="0" max="99" value="0" data-cc="84" data-label="AMP RELEASE">
-			</div>
-		</section>
+            <section class="control-box env-box">
+                <h3>AMP ENV</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="amp-attack">ATK</label><input type="range" id="amp-attack" min="0" max="99" value="0" data-cc="81" data-label="AMP ATTACK"></div>
+                    <div class="parameter-row"><label for="amp-decay">DEC</label><input type="range" id="amp-decay" min="0" max="99" value="0" data-cc="82" data-label="AMP DECAY"></div>
+                    <div class="parameter-row"><label for="amp-sustain">SUS</label><input type="range" id="amp-sustain" min="0" max="99" value="99" data-cc="83" data-label="AMP SUSTAIN"></div>
+                    <div class="parameter-row"><label for="amp-release">REL</label><input type="range" id="amp-release" min="0" max="99" value="0" data-cc="84" data-label="AMP RELEASE"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>VOICE 3</h3>
-			<div class="parameter-row">
-				<label for="voice-c-wave">WAVE</label>
-				<input type="range" id="voice-c-wave" min="0" max="127" value="0" data-cc="26" data-label="VOICE C WAVE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-c-coarse">COARSE</label>
-				<input type="range" id="voice-c-coarse" min="0" max="127" value="64" data-cc="117" data-label="VOICE C COARSE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-c-fine">FINE</label>
-				<input type="range" id="voice-c-fine" min="0" max="127" value="64" data-cc="113" data-label="VOICE C FINE">
-			</div>
-		</section>
+            <section class="control-box voice-box">
+                <h3>VOICE 3</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="voice-c-coarse">COARSE</label><input type="range" id="voice-c-coarse" min="0" max="99" value="50" data-cc="117" data-label="VOICE C COARSE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-c-fine">FINE</label><input type="range" id="voice-c-fine" min="0" max="99" value="50" data-cc="113" data-label="VOICE C FINE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-c-wave">WAVE</label><input type="range" id="voice-c-wave" min="0" max="127" value="0" data-cc="26" data-label="VOICE C WAVE"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>VOICE 4</h3>
-			<div class="parameter-row">
-				<label for="voice-d-wave">WAVE</label>
-				<input type="range" id="voice-d-wave" min="0" max="127" value="0" data-cc="27" data-label="VOICE D WAVE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-d-coarse">COARSE</label>
-				<input type="range" id="voice-d-coarse" min="0" max="127" value="64" data-cc="118" data-label="VOICE D COARSE">
-			</div>
-			<div class="parameter-row">
-				<label for="voice-d-fine">FINE</label>
-				<input type="range" id="voice-d-fine" min="0" max="127" value="64" data-cc="114" data-label="VOICE D FINE">
-			</div>
-		</section>
+            <section class="control-box voice-box">
+                <h3>VOICE 4</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="voice-d-coarse">COARSE</label><input type="range" id="voice-d-coarse" min="0" max="99" value="50" data-cc="118" data-label="VOICE D COARSE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-d-fine">FINE</label><input type="range" id="voice-d-fine" min="0" max="99" value="50" data-cc="114" data-label="VOICE D FINE" data-format="signed50"></div>
+                    <div class="parameter-row"><label for="voice-d-wave">WAVE</label><input type="range" id="voice-d-wave" min="0" max="127" value="0" data-cc="27" data-label="VOICE D WAVE"></div>
+                </div>
+            </section>
 
-		<section class="control-box compact-box">
-			<h3>PORTO</h3>
-			<div class="parameter-row">
-				<label for="portamento-time">AMT</label>
-				<input type="range" id="portamento-time" min="0" max="31" value="0" data-cc="5" data-label="PORTAMENTO">
-			</div>
-		</section>
+            <section class="control-box mini-box">
+                <h3>PORTO</h3>
+                <div class="slider-row single-slider">
+                    <div class="parameter-row"><label for="portamento-time">AMT</label><input type="range" id="portamento-time" min="0" max="31" value="0" data-cc="5" data-label="PORTAMENTO TIME"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>EFFECTS</h3>
-			<div class="parameter-row switch-row">
-				<label for="fx-engine">SELECT</label>
-				<input type="range" id="fx-engine" min="0" max="127" value="0" data-cc="9" data-label="FX ENGINE">
-			</div>
-			<div class="parameter-row">
-				<label for="chorus-depth">CHORUS</label>
-				<input type="range" id="chorus-depth" min="0" max="99" value="0" data-cc="91" data-label="CHORUS DEPTH">
-			</div>
-			<div class="parameter-row">
-				<label for="reverb-depth">REVERB</label>
-				<input type="range" id="reverb-depth" min="0" max="127" value="0" data-cc="92" data-label="REVERB DEPTH">
-			</div>
-		</section>
+            <section class="control-box effects-box">
+                <h3>EFFECTS</h3>
+                <div class="slider-row single-slider">
+                    <div class="parameter-row"><label for="fx-engine">SELECT</label><input type="range" id="fx-engine" min="0" max="127" value="0" data-cc="9" data-label="FX ENGINE" data-format="fx3"></div>
+                </div>
+                <div class="fx-key"><span>CHORUS</span><span>ENSEMBLE</span><span>REVERB</span></div>
+            </section>
 
-		<section class="control-box compact-box">
-			<h3>CHORUS</h3>
-			<div class="parameter-row">
-				<label for="chorus-rate">RATE</label>
-				<input type="range" id="chorus-rate" min="0" max="99" value="0" data-cc="92" data-label="CHORUS RATE">
-			</div>
-		</section>
+            <section class="control-box chorus-box">
+                <h3>CHORUS</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="chorus-depth">DEPTH</label><input type="range" id="chorus-depth" min="0" max="99" value="0" data-cc="91" data-label="CHORUS DEPTH"></div>
+                    <div class="parameter-row"><label for="chorus-rate">RATE</label><input type="range" id="chorus-rate" min="0" max="99" value="0" data-cc="92" data-label="CHORUS RATE"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>FILTER</h3>
-			<div class="parameter-row">
-				<label for="filter-cutoff">CUTOFF</label>
-				<input type="range" id="filter-cutoff" min="0" max="99" value="99" data-cc="74" data-label="FILTER CUTOFF">
-			</div>
-			<div class="parameter-row">
-				<label for="filter-resonance">RESO</label>
-				<input type="range" id="filter-resonance" min="0" max="99" value="0" data-cc="71" data-label="FILTER RESONANCE">
-			</div>
-			<div class="parameter-row">
-				<label for="filter-env-amount">ENV AMT</label>
-				<input type="range" id="filter-env-amount" min="0" max="127" value="0" data-cc="47" data-label="FILTER ENV AMOUNT">
-			</div>
-		</section>
+            <section class="control-box filter-box">
+                <h3>FILTER</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="filter-cutoff">CUTOFF</label><input type="range" id="filter-cutoff" min="0" max="99" value="99" data-cc="74" data-label="FILTER CUTOFF"></div>
+                    <div class="parameter-row"><label for="filter-resonance">RESO</label><input type="range" id="filter-resonance" min="0" max="99" value="0" data-cc="71" data-label="FILTER RESONANCE"></div>
+                    <div class="parameter-row"><label for="filter-env-amount">ENV AMT</label><input type="range" id="filter-env-amount" min="0" max="127" value="0" data-cc="47" data-label="FILTER ENV AMOUNT"></div>
+                </div>
+            </section>
 
-		<section class="control-box">
-			<h3>FILTER ENV</h3>
-			<div class="parameter-row">
-				<label for="filter-attack">ATK</label>
-				<input type="range" id="filter-attack" min="0" max="99" value="0" data-cc="85" data-label="FILTER ATTACK">
-			</div>
-			<div class="parameter-row">
-				<label for="filter-decay">DEC</label>
-				<input type="range" id="filter-decay" min="0" max="99" value="0" data-cc="86" data-label="FILTER DECAY">
-			</div>
-			<div class="parameter-row">
-				<label for="filter-sustain">SUS</label>
-				<input type="range" id="filter-sustain" min="0" max="99" value="99" data-cc="87" data-label="FILTER SUSTAIN">
-			</div>
-			<div class="parameter-row">
-				<label for="filter-release">REL</label>
-				<input type="range" id="filter-release" min="0" max="99" value="0" data-cc="88" data-label="FILTER RELEASE">
-			</div>
-		</section>
-	</main>
+            <section class="control-box env-box">
+                <h3>FILTER ENV</h3>
+                <div class="slider-row">
+                    <div class="parameter-row"><label for="filter-attack">ATK</label><input type="range" id="filter-attack" min="0" max="99" value="0" data-cc="85" data-label="FILTER ATTACK"></div>
+                    <div class="parameter-row"><label for="filter-decay">DEC</label><input type="range" id="filter-decay" min="0" max="99" value="0" data-cc="86" data-label="FILTER DECAY"></div>
+                    <div class="parameter-row"><label for="filter-sustain">SUS</label><input type="range" id="filter-sustain" min="0" max="99" value="99" data-cc="87" data-label="FILTER SUSTAIN"></div>
+                    <div class="parameter-row"><label for="filter-release">REL</label><input type="range" id="filter-release" min="0" max="99" value="0" data-cc="88" data-label="FILTER RELEASE"></div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-	<section id="cc-reference" class="cc-reference">
-		<h3>MIDI CC REFERENCE</h3>
-		<p>Use this as your implementation checklist while matching the hardware behavior.</p>
-		<div class="cc-grid">
-			<ul>
-				<li>CC 1: Modulation</li>
-				<li>CC 5: Portamento Time</li>
-				<li>CC 9: FX Engine</li>
-				<li>CC 24-27: Voice A-D Wave</li>
-				<li>CC 28: LFO 2 Amount</li>
-				<li>CC 47: Filter Env Amount</li>
-				<li>CC 54-55: LFO 1/2 Wave</li>
-				<li>CC 70-73: LFO Amount/Rate</li>
-				<li>CC 74: Filter Cutoff</li>
-			</ul>
-			<ul>
-				<li>CC 81-84: Amp Env ADSR</li>
-				<li>CC 85-88: Filter Env ADSR</li>
-				<li>CC 91: Chorus Depth</li>
-				<li>CC 92: Chorus Rate</li>
-				<li>CC 111-114: Voice A-D Fine</li>
-				<li>CC 115-118: Voice A-D Coarse</li>
-			</ul>
-		</div>
-	</section>
+    <section id="cc-reference" class="cc-reference">
+        <h3>MIDI CONTINUOUS CONTROLLERS</h3>
+        <p>The Pro VS Mini is capable of extensive control by means of MIDI continuous controllers:</p>
+        <div class="cc-table-grid">
+            <table class="cc-table">
+                <thead><tr><th>CC #</th><th>Affects</th><th>Range</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Modulation</td><td>0-127</td></tr>
+                    <tr><td>5</td><td>Portamento time</td><td>0-31</td></tr>
+                    <tr><td>9</td><td>FX Engine</td><td>0-127</td></tr>
+                    <tr><td></td><td>Chorus</td><td>0-42</td></tr>
+                    <tr><td></td><td>Ensemble</td><td>43-84</td></tr>
+                    <tr><td></td><td>Reverb</td><td>85-127</td></tr>
+                    <tr><td>24</td><td>Voice A Wave</td><td>0-127</td></tr>
+                    <tr><td>25</td><td>Voice B Wave</td><td>0-127</td></tr>
+                    <tr><td>26</td><td>Voice C Wave</td><td>0-127</td></tr>
+                    <tr><td>27</td><td>Voice D Wave</td><td>0-127</td></tr>
+                    <tr><td>28</td><td>LFO 2 Amount</td><td>0-99</td></tr>
+                    <tr><td>47</td><td>Filter Env Amount</td><td>0-127</td></tr>
+                    <tr><td>54</td><td>LFO 1 waveform (triangle, square, saw)</td><td>0-127</td></tr>
+                    <tr><td>55</td><td>LFO 2 waveform (triangle, square, saw)</td><td>0-127</td></tr>
+                    <tr><td>70</td><td>LFO 1 Amount</td><td>0-99</td></tr>
+                    <tr><td>71</td><td>Filter Resonance</td><td>0-99</td></tr>
+                    <tr><td>72</td><td>LFO 1 Rate</td><td>0-99</td></tr>
+                    <tr><td>73</td><td>LFO 2 Rate</td><td>0-99</td></tr>
+                </tbody>
+            </table>
 
-	<div id="footer-disclaimer">
-		<button id="footer-disclaimer-close" aria-label="Close disclaimer" type="button">&times;</button>
-		<p>This software is provided as-is, without warranty of any kind. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a></p>
-	</div>
+            <table class="cc-table">
+                <thead><tr><th>CC #</th><th>Affects</th><th>Range</th></tr></thead>
+                <tbody>
+                    <tr><td>74</td><td>Filter Cutoff</td><td>0-99</td></tr>
+                    <tr><td>81</td><td>Amplitude Envelope Attack</td><td>0-99</td></tr>
+                    <tr><td>82</td><td>Amplitude Envelope Decay</td><td>0-99</td></tr>
+                    <tr><td>83</td><td>Amplitude Envelope Sustain</td><td>0-99</td></tr>
+                    <tr><td>84</td><td>Amplitude Envelope Release</td><td>0-99</td></tr>
+                    <tr><td>85</td><td>Filter Envelope Attack</td><td>0-99</td></tr>
+                    <tr><td>86</td><td>Filter Envelope Decay</td><td>0-99</td></tr>
+                    <tr><td>87</td><td>Filter Envelope Sustain</td><td>0-99</td></tr>
+                    <tr><td>88</td><td>Filter Envelope Release</td><td>0-99</td></tr>
+                    <tr><td>91</td><td>Chorus Depth</td><td>0-99</td></tr>
+                    <tr><td>92</td><td>Chorus Rate</td><td>0-99</td></tr>
+                    <tr><td>111</td><td>Voice A Fine Tuning</td><td>0-99</td></tr>
+                    <tr><td>112</td><td>Voice B Fine Tuning</td><td>0-99</td></tr>
+                    <tr><td>113</td><td>Voice C Fine Tuning</td><td>0-99</td></tr>
+                    <tr><td>114</td><td>Voice D Fine Tuning</td><td>0-99</td></tr>
+                    <tr><td>115</td><td>Voice A Coarse Tuning</td><td>0-99</td></tr>
+                    <tr><td>116</td><td>Voice B Coarse Tuning</td><td>0-99</td></tr>
+                    <tr><td>117</td><td>Voice C Coarse Tuning</td><td>0-99</td></tr>
+                    <tr><td>118</td><td>Voice D Coarse Tuning</td><td>0-99</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-	<div id="version-number">v0.10</div>
+    <div id="footer-disclaimer">
+        <button id="footer-disclaimer-close" aria-label="Close disclaimer" type="button">&times;</button>
+        <p>This software is provided as-is, without warranty of any kind. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
+    </div>
 
-	<div id="about-modal" class="modal-hidden" aria-hidden="true">
-		<div id="about-modal-content" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
-			<button id="about-modal-close" aria-label="Close info popup" type="button">&times;</button>
-			<p id="about-modal-title">Pro VS Mini MIDI Editor</p>
-			<p>Version 0.10</p>
-			<p>Initial scaffold matching your existing editor pattern.</p>
-			<p><a href="privacy.html">Privacy &amp; Cookies</a></p>
-		</div>
-	</div>
+    <div id="version-number">v0.20</div>
+
+    <div id="about-modal" class="modal-hidden" aria-hidden="true">
+        <div id="about-modal-content" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+            <button id="about-modal-close" aria-label="Close info popup" type="button">&times;</button>
+            <p id="about-modal-title">Pro VS Mini MIDI Editor</p>
+            <p>Version 0.20</p>
+            <p>Second-pass layout and CC mapping refresh.</p>
+            <p><a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
+        </div>
+    </div>
 </body>
 </html>
