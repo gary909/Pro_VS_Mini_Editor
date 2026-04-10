@@ -110,7 +110,7 @@
             <section class="control-box voice-box">
                 <h3>VOICE 1</h3>
                 <div class="voice-screen">ProVS</div>
-                <div class="wave-preview">
+                <div class="wave-preview" role="button" tabindex="0" aria-label="Open Voice 1 waveform preview" data-wave-control="voice-a-wave">
                     <img id="voice-a-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
                     <p id="voice-a-wave-caption">000 - TWANG</p>
                 </div>
@@ -124,7 +124,7 @@
             <section class="control-box voice-box">
                 <h3>VOICE 2</h3>
                 <div class="voice-screen">ProVS</div>
-                <div class="wave-preview">
+                <div class="wave-preview" role="button" tabindex="0" aria-label="Open Voice 2 waveform preview" data-wave-control="voice-b-wave">
                     <img id="voice-b-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
                     <p id="voice-b-wave-caption">000 - TWANG</p>
                 </div>
@@ -175,7 +175,7 @@
             <section class="control-box voice-box">
                 <h3>VOICE 3</h3>
                 <div class="voice-screen">ProVS</div>
-                <div class="wave-preview">
+                <div class="wave-preview" role="button" tabindex="0" aria-label="Open Voice 3 waveform preview" data-wave-control="voice-c-wave">
                     <img id="voice-c-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
                     <p id="voice-c-wave-caption">000 - TWANG</p>
                 </div>
@@ -189,7 +189,7 @@
             <section class="control-box voice-box">
                 <h3>VOICE 4</h3>
                 <div class="voice-screen">ProVS</div>
-                <div class="wave-preview">
+                <div class="wave-preview" role="button" tabindex="0" aria-label="Open Voice 4 waveform preview" data-wave-control="voice-d-wave">
                     <img id="voice-d-wave-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang" loading="lazy" decoding="async">
                     <p id="voice-d-wave-caption">000 - TWANG</p>
                 </div>
@@ -304,14 +304,23 @@
         <p>This software is provided as-is, without warranty of any kind. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
     </div>
 
-    <div id="version-number">v0.23</div>
+    <div id="version-number">v0.24</div>
+
+    <div id="wave-modal" class="modal-hidden" aria-hidden="true">
+        <div id="wave-modal-content" role="dialog" aria-modal="true" aria-labelledby="wave-modal-title">
+            <button id="wave-modal-close" aria-label="Close waveform preview" type="button">&times;</button>
+            <p id="wave-modal-title">VOICE WAVEFORM</p>
+            <img id="wave-modal-image" src="waveforms_svg_pass3/000-twang.svg" alt="Waveform 0 Twang">
+            <p id="wave-modal-caption">000 - TWANG</p>
+        </div>
+    </div>
 
     <div id="about-modal" class="modal-hidden" aria-hidden="true">
         <div id="about-modal-content" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
             <button id="about-modal-close" aria-label="Close info popup" type="button">&times;</button>
             <p id="about-modal-title">Pro VS Mini MIDI Editor</p>
-            <p>Version 0.23</p>
-            <p>Integrated pass3 waveform SVG previews for all four voice wave controls.</p>
+            <p>Version 0.24</p>
+            <p>Added click-to-zoom waveform modal with live preview updates for all four voices.</p>
             <p><a href="privacy.html">Privacy &amp; Cookies</a> | <a href="terms.html">Terms &amp; Conditions</a></p>
         </div>
     </div>

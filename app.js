@@ -46,11 +46,60 @@ const WAVEFORM_INDEX = Array.isArray(window.WAVEFORM_INDEX) && window.WAVEFORM_I
     ? window.WAVEFORM_INDEX
     : [DEFAULT_WAVEFORM_ENTRY];
 const WAVEFORM_BY_NUMBER = new Map(WAVEFORM_INDEX.map((entry) => [entry.n, entry]));
+let activeWaveModalControlId = null;
 
 function getWaveformEntry(value) {
     const numericValue = Number.isFinite(value) ? value : 0;
     const clampedValue = Math.max(0, Math.min(127, numericValue));
     return WAVEFORM_BY_NUMBER.get(clampedValue) || DEFAULT_WAVEFORM_ENTRY;
+}
+
+function getWaveCaption(entry) {
+    const numberText = String(entry.n).padStart(3, "0");
+    return `${numberText} - ${entry.name.toUpperCase()}`;
+}
+
+function updateWaveModalFromControl(control) {
+    if (!control) {
+        return;
+    }
+
+    const modal = document.getElementById("wave-modal");
+    const modalImage = document.getElementById("wave-modal-image");
+    const modalCaption = document.getElementById("wave-modal-caption");
+
+    if (!modal || modal.classList.contains("modal-hidden") || !modalImage || !modalCaption) {
+        return;
+    }
+
+    const entry = getWaveformEntry(parseInt(control.value, 10));
+    modalImage.src = `${WAVEFORM_BASE_PATH}${entry.file}`;
+    modalImage.alt = `Waveform ${entry.n} ${entry.name}`;
+    modalCaption.textContent = getWaveCaption(entry);
+}
+
+function openWaveModal(controlId) {
+    const control = document.getElementById(controlId);
+    const modal = document.getElementById("wave-modal");
+    if (!control || !modal) {
+        return;
+    }
+
+    activeWaveModalControlId = controlId;
+    modal.classList.remove("modal-hidden");
+    modal.setAttribute("aria-hidden", "false");
+    updateWaveModalFromControl(control);
+}
+
+function closeWaveModal() {
+    const modal = document.getElementById("wave-modal");
+    if (!modal) {
+        return;
+    }
+
+    activeWaveModalControlId = null;
+    modal.classList.add("modal-hidden");
+    modal.setAttribute("aria-hidden", "true");
 }
 
 function setWavePreviewFromControl(control) {
@@ -70,9 +119,12 @@ function setWavePreviewFromControl(control) {
     if (control.dataset.waveCaption) {
         const caption = document.getElementById(control.dataset.waveCaption);
         if (caption) {
-            const numberText = String(entry.n).padStart(3, "0");
-            caption.textContent = `${numberText} - ${entry.name.toUpperCase()}`;
+            caption.textContent = getWaveCaption(entry);
         }
+    }
+
+    if (activeWaveModalControlId && control.id === activeWaveModalControlId) {
+        updateWaveModalFromControl(control);
     }
 }
 
@@ -325,6 +377,9 @@ function setupNavAndModal() {
     const aboutModal = document.getElementById("about-modal");
     const aboutModalClose = document.getElementById("about-modal-close");
     const aboutModalContent = document.getElementById("about-modal-content");
+    const waveModal = document.getElementById("wave-modal");
+    const waveModalClose = document.getElementById("wave-modal-close");
+    const waveModalContent = document.getElementById("wave-modal-content");
     const footerDisclaimer = document.getElementById("footer-disclaimer");
     const footerClose = document.getElementById("footer-disclaimer-close");
 
@@ -375,6 +430,18 @@ function setupNavAndModal() {
         });
     }
 
+    if (waveModalClose) {
+        waveModalClose.addEventListener("click", closeWaveModal);
+    }
+
+    if (waveModal) {
+        waveModal.addEventListener("click", (event) => {
+            if (!waveModalContent || !waveModalContent.contains(event.target)) {
+                closeWaveModal();
+            }
+        });
+    }
+
     if (footerDisclaimer && footerClose) {
         footerClose.addEventListener("click", () => {
             footerDisclaimer.style.display = "none";
@@ -397,7 +464,22 @@ function setupNavAndModal() {
     window.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
             closeAboutModal();
+            closeWaveModal();
         }
+    });
+
+    const wavePreviewCards = document.querySelectorAll(".wave-preview[data-wave-control]");
+    wavePreviewCards.forEach((card) => {
+        const controlId = card.dataset.waveControl;
+        card.addEventListener("click", () => {
+            openWaveModal(controlId);
+        });
+        card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openWaveModal(controlId);
+            }
+        });
     });
 
     const accordions = document.getElementsByClassName("accordion-header");
