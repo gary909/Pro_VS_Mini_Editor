@@ -437,57 +437,89 @@ a {
     width: min(1490px, 97vw);
     margin-top: 14px;
     margin-bottom: 14px;
-    background: #efefef;
-    border: 1px solid #d7d7d7;
-    border-radius: 4px;
-    padding: 14px;
-    color: #1f2430;
+    background: #e5e5e5;
+    border: 1px solid #d0d0d0;
+    border-radius: 2px;
+    padding: 12px 14px 14px;
+    color: #1f232b;
 }
 
 .cc-reference h3 {
     display: inline-block;
-    background: #5d6470;
+    background: #666d78;
     color: #f6f8fe;
-    border-radius: 4px;
-    padding: 6px 10px;
-    margin-bottom: 6px;
+    border-radius: 7px;
+    padding: 6px 12px;
+    margin-bottom: 4px;
     font-style: normal;
+    font-size: 13px;
 }
 
 .cc-reference p {
-    margin: 3px 0 10px;
+    margin: 3px 0 9px;
     font-size: 15px;
+    line-height: 1.1;
+    letter-spacing: 0.2px;
+    font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .cc-table-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    gap: 20px;
 }
 
 .cc-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
+    background: #e5e5e5;
+    font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .cc-table th {
     text-align: left;
-    background-color: #5d6470;
+    background-color: #666d78;
     color: #f6f8fe;
-    padding: 6px 8px;
-    border-right: 1px solid #8a9099;
+    padding: 6px 10px;
+    border-right: 1px solid #8f95a0;
+    font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    font-weight: 600;
 }
 
 .cc-table td {
-    padding: 4px 8px;
-    border-bottom: 1px solid #b8bcc2;
-    border-right: 1px solid #c7cad0;
+    padding: 5px 9px;
+    border-bottom: 1px solid #a4a8af;
+    border-right: 1px solid #bcc0c6;
+    color: #232831;
+    line-height: 1.2;
 }
 
 .cc-table th:last-child,
 .cc-table td:last-child {
     border-right: none;
+}
+
+.cc-table thead th:first-child {
+    width: 74px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.cc-table thead th:nth-child(2) {
+    width: auto;
+}
+
+.cc-table thead th:last-child {
+    width: 98px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.cc-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 #footer-disclaimer {
