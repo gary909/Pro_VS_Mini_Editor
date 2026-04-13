@@ -230,9 +230,19 @@
             <section class="control-box effects-box">
                 <h3>EFFECTS</h3>
                 <div class="slider-row single-slider">
-                    <div class="parameter-row"><label for="fx-engine">SELECT</label><input type="range" id="fx-engine" min="0" max="127" value="0" data-cc="9" data-label="FX ENGINE" data-format="fx3"></div>
+                    <div class="parameter-row wave-cycle-row">
+                        <label for="fx-engine-cycle">SELECT</label>
+                        <div class="wave-cycle-wrap">
+                            <button id="fx-engine-cycle" class="wave-cycle-button" type="button" data-fx-cycle-for="fx-engine" aria-label="Cycle effects engine">FX</button>
+                            <input type="range" id="fx-engine" class="wave-cycle-control" min="0" max="127" value="0" data-cc="9" data-label="FX ENGINE" data-format="fx3" tabindex="-1" aria-hidden="true">
+                            <div class="wave-cycle-leds" aria-hidden="true">
+                                <span class="wave-cycle-option" data-fx-option="0"><b class="wave-led"></b><span>CHORUS</span></span>
+                                <span class="wave-cycle-option" data-fx-option="1"><b class="wave-led"></b><span>ENSEMBLE</span></span>
+                                <span class="wave-cycle-option" data-fx-option="2"><b class="wave-led"></b><span>REVERB</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="fx-key"><span>CHORUS</span><span>ENSEMBLE</span><span>REVERB</span></div>
             </section>
 
             <section class="control-box chorus-box">

@@ -108,6 +108,7 @@ function setWavePreviewFromControl(control) {
     }
 
     updateWaveCycleIndicator(control);
+    updateFxCycleIndicator(control);
 
     if (!control.dataset.wavePreview) {
         return;
@@ -196,6 +197,49 @@ function updateWaveCycleIndicator(control) {
     const options = wrapper.querySelectorAll(".wave-cycle-option");
     options.forEach((option, optionIndex) => {
         option.classList.toggle("is-active", optionIndex === waveIndex);
+    });
+}
+
+function getFxIndexFromValue(value) {
+    if (value <= 42) {
+        return 0;
+    }
+    if (value <= 84) {
+        return 1;
+    }
+    return 2;
+}
+
+function getFxValueFromIndex(index) {
+    const mappedValues = [0, 64, 127];
+    return mappedValues[index] ?? 0;
+}
+
+function updateFxCycleIndicator(control) {
+    if (!control || control.dataset.format !== "fx3") {
+        return;
+    }
+
+    const button = document.querySelector(`.wave-cycle-button[data-fx-cycle-for="${control.id}"]`);
+    if (!button) {
+        return;
+    }
+
+    const numericValue = parseInt(control.value, 10);
+    const fxIndex = getFxIndexFromValue(numericValue);
+    const fxName = getFxEngineName(numericValue);
+    const wrapper = button.closest(".wave-cycle-wrap");
+
+    button.textContent = fxName.slice(0, 3);
+    button.setAttribute("aria-label", `Cycle ${control.dataset.label || control.id} (current ${fxName})`);
+
+    if (!wrapper) {
+        return;
+    }
+
+    const options = wrapper.querySelectorAll(".wave-cycle-option");
+    options.forEach((option, optionIndex) => {
+        option.classList.toggle("is-active", optionIndex === fxIndex);
     });
 }
 
@@ -371,6 +415,41 @@ function setupWaveCycleButtons() {
             const currentIndex = getWaveIndexFromValue(currentValue);
             const nextIndex = (currentIndex + 1) % 3;
             const nextValue = getWaveValueFromIndex(nextIndex);
+            const cc = parseInt(control.dataset.cc, 10);
+            const label = control.dataset.label || control.id.toUpperCase();
+
+            control.value = nextValue;
+            sendMidiCC(cc, nextValue);
+            updateTempStatus(`${label}: ${formatValue(control, nextValue)}`);
+            setWavePreviewFromControl(control);
+            setTimeout(restoreStatusText, 900);
+        });
+    });
+}
+
+function setupFxCycleButtons() {
+    const buttons = document.querySelectorAll(".wave-cycle-button[data-fx-cycle-for]");
+    const select = document.getElementById("midi-output-select");
+
+    buttons.forEach((button) => {
+        const controlId = button.dataset.fxCycleFor;
+        const control = document.getElementById(controlId);
+
+        if (!control) {
+            return;
+        }
+
+        updateFxCycleIndicator(control);
+
+        button.addEventListener("click", () => {
+            if (select && select.selectedIndex >= 0) {
+                originalMidiStatusText = select.options[select.selectedIndex].textContent;
+            }
+
+            const currentValue = parseInt(control.value, 10);
+            const currentIndex = getFxIndexFromValue(currentValue);
+            const nextIndex = (currentIndex + 1) % 3;
+            const nextValue = getFxValueFromIndex(nextIndex);
             const cc = parseInt(control.dataset.cc, 10);
             const label = control.dataset.label || control.id.toUpperCase();
 
@@ -587,6 +666,7 @@ function setupNavAndModal() {
 
 syncAllWavePreviews();
 setupWaveCycleButtons();
+setupFxCycleButtons();
 attachControlListeners();
 setupNavAndModal();
 
