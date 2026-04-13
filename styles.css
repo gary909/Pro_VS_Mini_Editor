@@ -300,11 +300,7 @@ a {
 }
 
 .effects-box {
-    grid-column: span 4;
-}
-
-.chorus-box {
-    grid-column: span 3;
+    grid-column: span 7;
 }
 
 .filter-box {
