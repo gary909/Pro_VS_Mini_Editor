@@ -103,7 +103,13 @@ function closeWaveModal() {
 }
 
 function setWavePreviewFromControl(control) {
-    if (!control || !control.dataset.wavePreview) {
+    if (!control) {
+        return;
+    }
+
+    updateWaveCycleIndicator(control);
+
+    if (!control.dataset.wavePreview) {
         return;
     }
 
@@ -148,6 +154,49 @@ function getWaveName(value) {
         return "SQUARE";
     }
     return "SAW";
+}
+
+function getWaveIndexFromValue(value) {
+    if (value <= 42) {
+        return 0;
+    }
+    if (value <= 85) {
+        return 1;
+    }
+    return 2;
+}
+
+function getWaveValueFromIndex(index) {
+    const mappedValues = [0, 64, 127];
+    return mappedValues[index] ?? 0;
+}
+
+function updateWaveCycleIndicator(control) {
+    if (!control || control.dataset.format !== "wave3") {
+        return;
+    }
+
+    const button = document.querySelector(`.wave-cycle-button[data-wave-cycle-for="${control.id}"]`);
+    if (!button) {
+        return;
+    }
+
+    const numericValue = parseInt(control.value, 10);
+    const waveIndex = getWaveIndexFromValue(numericValue);
+    const waveName = getWaveName(numericValue);
+    const wrapper = button.closest(".wave-cycle-wrap");
+
+    button.textContent = waveName.slice(0, 3);
+    button.setAttribute("aria-label", `Cycle ${control.dataset.label || control.id} (current ${waveName})`);
+
+    if (!wrapper) {
+        return;
+    }
+
+    const options = wrapper.querySelectorAll(".wave-cycle-option");
+    options.forEach((option, optionIndex) => {
+        option.classList.toggle("is-active", optionIndex === waveIndex);
+    });
 }
 
 function getFxEngineName(value) {
@@ -296,6 +345,41 @@ function attachControlListeners() {
         control.addEventListener("change", restoreStatusText);
         control.addEventListener("mouseup", restoreStatusText);
         control.addEventListener("touchend", restoreStatusText, { passive: true });
+    });
+}
+
+function setupWaveCycleButtons() {
+    const buttons = document.querySelectorAll(".wave-cycle-button[data-wave-cycle-for]");
+    const select = document.getElementById("midi-output-select");
+
+    buttons.forEach((button) => {
+        const controlId = button.dataset.waveCycleFor;
+        const control = document.getElementById(controlId);
+
+        if (!control) {
+            return;
+        }
+
+        updateWaveCycleIndicator(control);
+
+        button.addEventListener("click", () => {
+            if (select && select.selectedIndex >= 0) {
+                originalMidiStatusText = select.options[select.selectedIndex].textContent;
+            }
+
+            const currentValue = parseInt(control.value, 10);
+            const currentIndex = getWaveIndexFromValue(currentValue);
+            const nextIndex = (currentIndex + 1) % 3;
+            const nextValue = getWaveValueFromIndex(nextIndex);
+            const cc = parseInt(control.dataset.cc, 10);
+            const label = control.dataset.label || control.id.toUpperCase();
+
+            control.value = nextValue;
+            sendMidiCC(cc, nextValue);
+            updateTempStatus(`${label}: ${formatValue(control, nextValue)}`);
+            setWavePreviewFromControl(control);
+            setTimeout(restoreStatusText, 900);
+        });
     });
 }
 
@@ -502,6 +586,7 @@ function setupNavAndModal() {
 }
 
 syncAllWavePreviews();
+setupWaveCycleButtons();
 attachControlListeners();
 setupNavAndModal();
 

@@ -145,21 +145,41 @@
             <section class="control-box lfo-box">
                 <h3>LFO 1</h3>
                 <div class="slider-row">
-                    <div class="parameter-row"><label for="lfo1-wave">WAVE</label><input type="range" id="lfo1-wave" min="0" max="127" value="0" data-cc="54" data-label="LFO 1 WAVE" data-format="wave3"></div>
+                    <div class="parameter-row wave-cycle-row">
+                        <label for="lfo1-wave-cycle">WAVE</label>
+                        <div class="wave-cycle-wrap">
+                            <button id="lfo1-wave-cycle" class="wave-cycle-button" type="button" data-wave-cycle-for="lfo1-wave" aria-label="Cycle LFO 1 waveform">WAVE</button>
+                            <input type="range" id="lfo1-wave" class="wave-cycle-control" min="0" max="127" value="0" data-cc="54" data-label="LFO 1 WAVE" data-format="wave3" tabindex="-1" aria-hidden="true">
+                            <div class="wave-cycle-leds" aria-hidden="true">
+                                <span class="wave-cycle-option" data-wave-option="0"><b class="wave-led"></b><span>TRI</span></span>
+                                <span class="wave-cycle-option" data-wave-option="1"><b class="wave-led"></b><span>SQR</span></span>
+                                <span class="wave-cycle-option" data-wave-option="2"><b class="wave-led"></b><span>SAW</span></span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="parameter-row"><label for="lfo1-rate">RATE</label><input type="range" id="lfo1-rate" min="0" max="99" value="0" data-cc="72" data-label="LFO 1 RATE"></div>
                     <div class="parameter-row"><label for="lfo1-amt">AMT</label><input type="range" id="lfo1-amt" min="0" max="99" value="0" data-cc="70" data-label="LFO 1 AMOUNT"></div>
                 </div>
-                <div class="wave-key"><span>TRI</span><span>SQR</span><span>SAW</span></div>
             </section>
 
             <section class="control-box lfo-box">
                 <h3>LFO 2</h3>
                 <div class="slider-row">
-                    <div class="parameter-row"><label for="lfo2-wave">WAVE</label><input type="range" id="lfo2-wave" min="0" max="127" value="0" data-cc="55" data-label="LFO 2 WAVE" data-format="wave3"></div>
+                    <div class="parameter-row wave-cycle-row">
+                        <label for="lfo2-wave-cycle">WAVE</label>
+                        <div class="wave-cycle-wrap">
+                            <button id="lfo2-wave-cycle" class="wave-cycle-button" type="button" data-wave-cycle-for="lfo2-wave" aria-label="Cycle LFO 2 waveform">WAVE</button>
+                            <input type="range" id="lfo2-wave" class="wave-cycle-control" min="0" max="127" value="0" data-cc="55" data-label="LFO 2 WAVE" data-format="wave3" tabindex="-1" aria-hidden="true">
+                            <div class="wave-cycle-leds" aria-hidden="true">
+                                <span class="wave-cycle-option" data-wave-option="0"><b class="wave-led"></b><span>TRI</span></span>
+                                <span class="wave-cycle-option" data-wave-option="1"><b class="wave-led"></b><span>SQR</span></span>
+                                <span class="wave-cycle-option" data-wave-option="2"><b class="wave-led"></b><span>SAW</span></span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="parameter-row"><label for="lfo2-rate">RATE</label><input type="range" id="lfo2-rate" min="0" max="99" value="0" data-cc="73" data-label="LFO 2 RATE"></div>
                     <div class="parameter-row"><label for="lfo2-amt">AMT</label><input type="range" id="lfo2-amt" min="0" max="99" value="0" data-cc="28" data-label="LFO 2 AMOUNT"></div>
                 </div>
-                <div class="wave-key"><span>TRI</span><span>SQR</span><span>SAW</span></div>
             </section>
 
             <section class="control-box env-box amp-env-box">

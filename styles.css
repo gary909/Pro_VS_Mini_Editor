@@ -366,6 +366,93 @@ a {
     z-index: 0;
 }
 
+.parameter-row.wave-cycle-row::before {
+    display: none;
+}
+
+.parameter-row.wave-cycle-row {
+    gap: 6px;
+    min-width: 58px;
+}
+
+.wave-cycle-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.wave-cycle-button {
+    width: 22px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #1a1f2a;
+    background: linear-gradient(180deg, #1c222d 0, #10141b 100%);
+    color: #93a1bb;
+    font-family: "Orbitron", sans-serif;
+    font-size: 6px;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px rgba(186, 206, 236, 0.09), 0 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+.wave-cycle-button:hover,
+.wave-cycle-button:focus-visible {
+    border-color: #2e7ee2;
+    outline: none;
+}
+
+.wave-cycle-button:active {
+    transform: translateY(1px);
+}
+
+.wave-cycle-control {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wave-cycle-leds {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 1px;
+}
+
+.wave-cycle-option {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    color: #c1cee7;
+    opacity: 0.62;
+}
+
+.wave-cycle-option span {
+    line-height: 1;
+}
+
+.wave-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2f1416;
+    border: 1px solid #38181b;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.65);
+}
+
+.wave-cycle-option.is-active {
+    opacity: 1;
+}
+
+.wave-cycle-option.is-active .wave-led {
+    background: radial-gradient(circle at 35% 30%, #ffd8d8 0, #ff6363 25%, #ff2222 58%, #b70808 100%);
+    border-color: #6e1015;
+    box-shadow: 0 0 5px rgba(255, 61, 61, 0.85), 0 0 1px rgba(255, 152, 152, 0.95);
+}
+
 .voice-screen {
     margin: 8px auto 2px;
     width: 74%;
