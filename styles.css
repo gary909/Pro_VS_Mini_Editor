@@ -404,7 +404,7 @@ a {
     bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
-    width: 16px;
+    width: 14px;
     height: 98px;
     border-radius: 0;
     border: none;
@@ -413,21 +413,30 @@ a {
             180deg,
             transparent 0px,
             transparent 8.5px,
-            white 8.5px,
-            white 10px
-        ),
-        linear-gradient(
-            90deg,
-            transparent calc(50% - 1.5px),
-            #000 calc(50% - 1.5px),
-            #000 calc(50% + 1.5px),
-            transparent calc(50% + 1.5px)
+            #808080 8.5px,
+            #808080 10px
         );
     box-shadow: none;
     z-index: 0;
 }
 
+.parameter-row::after {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 98px;
+    background: #13171F;
+    z-index: 1;
+}
+
 .parameter-row.wave-cycle-row::before {
+    display: none;
+}
+
+.parameter-row.wave-cycle-row::after {
     display: none;
 }
 
@@ -636,14 +645,14 @@ a {
 
 /* Original slider styling restored */
 .control-box input[type="range"] {
-    writing-mode: bt-lr;
-    -webkit-appearance: slider-vertical;
-    appearance: slider-vertical;
-    width: 24px;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
     height: 96px;
     margin: 0;
     padding: 0;
-    accent-color: transparent;
     position: relative;
     z-index: 2;
     background: transparent;
@@ -661,19 +670,10 @@ a {
     height: 10px;
     border-radius: 2px;
     border: 1px solid #1b1e25;
-    background:
-        linear-gradient(180deg,
-            transparent 0%, white 0%, white 8%, transparent 8%,
-            transparent 30%, white 30%, white 38%, transparent 38%,
-            transparent 60%, white 60%, white 68%, transparent 68%,
-            transparent 90%, white 90%, white 98%, transparent 98%,
-            transparent 100%
-        ),
-        linear-gradient(180deg, #e7ebf2 0, #a8aebb 46%, #686e79 52%, #c2c8d3 100%);
+    background: linear-gradient(180deg, #000 0%, #000 44%, white 44%, white 56%, #000 56%, #000 100%);
     box-shadow:
         0 1px 0 rgba(255, 255, 255, 0.18),
-        0 1px 3px rgba(0, 0, 0, 0.55),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        0 1px 3px rgba(0, 0, 0, 0.55);
 }
 /* Firefox */
 .control-box input[type="range"]::-moz-range-track {
@@ -687,19 +687,10 @@ a {
     height: 10px;
     border-radius: 2px;
     border: 1px solid #1b1e25;
-    background:
-        linear-gradient(180deg,
-            transparent 0%, white 0%, white 8%, transparent 8%,
-            transparent 30%, white 30%, white 38%, transparent 38%,
-            transparent 60%, white 60%, white 68%, transparent 68%,
-            transparent 90%, white 90%, white 98%, transparent 98%,
-            transparent 100%
-        ),
-        linear-gradient(180deg, #e7ebf2 0, #a8aebb 46%, #686e79 52%, #c2c8d3 100%);
+    background: linear-gradient(180deg, #000 0%, #000 44%, white 44%, white 56%, #000 56%, #000 100%);
     box-shadow:
         0 1px 0 rgba(255, 255, 255, 0.18),
-        0 1px 3px rgba(0, 0, 0, 0.55),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        0 1px 3px rgba(0, 0, 0, 0.55);
 }
 
 .hamburger-menu {
