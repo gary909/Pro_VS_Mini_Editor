@@ -293,8 +293,11 @@ a {
 
 .voice-box .wave-preview {
     position: relative;
-    margin: 10px 8px -6px;
+    width: 44%; /* set the wave display box width */
+    margin: 12px auto -38px;
+    transform: translateX(-16px); /* shift the wave display box to the left */
     padding: 3px;
+    z-index: 3;
 }
 
 .voice-box .wave-preview img {
@@ -304,21 +307,22 @@ a {
 .voice-box .wave-preview p {
     position: absolute;
     right: 5px;
-    bottom: 5px;
+    bottom: 4px;
     left: 5px;
     margin: 0;
-    padding: 1px 3px;
-    font-size: 8px;
+    padding: 1px 2px;
+    font-size: 7px;
+    letter-spacing: 0.3px;
     text-align: center;
-    color: #ebf3ff;
-    background: linear-gradient(180deg, rgba(9, 13, 19, 0.08) 0, rgba(9, 13, 19, 0.58) 100%);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+    color: #000000;
+    background: linear-gradient(180deg, rgba(9, 13, 19, 0.06) 0, rgba(9, 13, 19, 0.46) 100%);
+    /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9); */
     pointer-events: none;
 }
 
 .voice-box .slider-row {
-    min-height: 112px;
-    padding-top: 0;
+    min-height: 116px;
+    padding-top: 4px;
 }
 
 .voice-box .parameter-row.voice-tune-row::before {
