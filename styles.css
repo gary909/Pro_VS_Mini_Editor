@@ -171,7 +171,8 @@ a {
     box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.34);
     position: relative;
     display: grid;
-    grid-template-columns: repeat(24, 1fr);
+    grid-template-columns: repeat(6, auto);
+    justify-content: space-evenly;
     gap: 8px;
     padding: 12px;
 }
@@ -293,7 +294,8 @@ a {
 }
 
 .voice-box {
-    grid-column: span 4;
+    min-width:170px;
+    max-width: 170px;
 }
 
 .voice-box .wave-preview {
@@ -344,31 +346,43 @@ a {
 }
 
 .mini-box {
-    grid-column: span 2;
+    min-width: 80px;
+    max-width: 80px;
 }
 
 .lfo-box {
-    grid-column: span 4;
+    min-width: 200px;
+    max-width: 200px;
 }
 
 .effects-box {
-    grid-column: span 7;
+    min-width: 240px;
+    max-width: 240px;
 }
 
 .filter-box {
-    grid-column: span 3;
+    min-width: 170px;
+    max-width: 170px;
 }
 
 .env-box {
-    grid-column: span 4;
 }
 
 .amp-env-box {
-    grid-column: span 6;
+    min-width: 170px;
+    max-width: 170px;
 }
 
 .filter-env-box {
-    grid-column: span 4;
+    min-width: 170px;
+    max-width: 170px;
+}
+
+/* Desktop 2-row layout:
+   Row 1: VOICE1, VOICE2, MOD, LFO1, LFO2, AMP ENV  (children 2-7)
+   Row 2: VOICE3, VOICE4, PORTO, EFFECTS, FILTER, FILTER ENV  (children 8-13) */
+.rack-frame > section:nth-child(n+8) {
+    grid-row: 2;
 }
 
 .slider-row {
@@ -918,30 +932,11 @@ body.privacy-page .control-box p {
 }
 
 @media (max-width: 1200px) {
-    .rack-frame {
-        grid-template-columns: repeat(12, 1fr);
-    }
-
     .rack-top {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
         min-height: 88px;
-    }
-
-    .voice-box,
-    .lfo-box,
-    .env-box,
-    .effects-box,
-    .chorus-box,
-    .filter-box,
-    .mini-box {
-        grid-column: span 6;
-    }
-
-    .amp-env-box,
-    .filter-env-box {
-        grid-column: span 6;
     }
 }
 
@@ -976,16 +971,27 @@ body.privacy-page .control-box p {
 
     .rack-frame {
         grid-template-columns: 1fr;
+        justify-content: normal;
     }
 
-    .logo-sub {
-        font-size: 22px;
+    /* Reset desktop grid-row assignments */
+    .rack-frame > section {
+        grid-row: auto;
     }
 
-    .up-switches {
-        width: 100%;
-        justify-content: space-between;
-    }
+    /* Mobile order: VOICE1, VOICE2, VOICE3, VOICE4, MOD, PORTO, LFO1, LFO2, AMP ENV, EFFECTS, FILTER, FILTER ENV */
+    .rack-frame > section:nth-child(2)  { order: 1; }  /* VOICE 1 */
+    .rack-frame > section:nth-child(3)  { order: 2; }  /* VOICE 2 */
+    .rack-frame > section:nth-child(8)  { order: 3; }  /* VOICE 3 */
+    .rack-frame > section:nth-child(9)  { order: 4; }  /* VOICE 4 */
+    .rack-frame > section:nth-child(4)  { order: 5; }  /* MOD */
+    .rack-frame > section:nth-child(10) { order: 6; }  /* PORTO */
+    .rack-frame > section:nth-child(5)  { order: 7; }  /* LFO 1 */
+    .rack-frame > section:nth-child(6)  { order: 8; }  /* LFO 2 */
+    .rack-frame > section:nth-child(7)  { order: 9; }  /* AMP ENV */
+    .rack-frame > section:nth-child(11) { order: 10; } /* EFFECTS */
+    .rack-frame > section:nth-child(12) { order: 11; } /* FILTER */
+    .rack-frame > section:nth-child(13) { order: 12; } /* FILTER ENV */
 
     .voice-box,
     .lfo-box,
@@ -995,5 +1001,14 @@ body.privacy-page .control-box p {
     .filter-box,
     .mini-box {
         grid-column: auto;
+    }
+
+    .logo-sub {
+        font-size: 22px;
+    }
+
+    .up-switches {
+        width: 100%;
+        justify-content: space-between;
     }
 }
