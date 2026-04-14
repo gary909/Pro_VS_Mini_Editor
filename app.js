@@ -41,17 +41,14 @@ const INIT_VALUES = {
 };
 
 const WAVEFORM_BASE_PATH = "waveforms_svg_pass3/";
-const DEFAULT_WAVEFORM_ENTRY = { n: 0, name: "Twang", file: "000-twang.svg" };
-const WAVEFORM_INDEX = Array.isArray(window.WAVEFORM_INDEX) && window.WAVEFORM_INDEX.length > 0
-    ? window.WAVEFORM_INDEX
-    : [DEFAULT_WAVEFORM_ENTRY];
+const WAVEFORM_INDEX = window.WAVEFORM_INDEX;
 const WAVEFORM_BY_NUMBER = new Map(WAVEFORM_INDEX.map((entry) => [entry.n, entry]));
 let activeWaveModalControlId = null;
 
 function getWaveformEntry(value) {
     const numericValue = Number.isFinite(value) ? value : 0;
     const clampedValue = Math.max(0, Math.min(127, numericValue));
-    return WAVEFORM_BY_NUMBER.get(clampedValue) || DEFAULT_WAVEFORM_ENTRY;
+    return WAVEFORM_BY_NUMBER.get(clampedValue);
 }
 
 function getWaveCaption(entry) {
@@ -73,7 +70,7 @@ function updateWaveModalFromControl(control) {
     }
 
     const entry = getWaveformEntry(parseInt(control.value, 10));
-    modalImage.src = `${WAVEFORM_BASE_PATH}${entry.file}`;
+    modalImage.src = `${WAVEFORM_BASE_PATH}${entry.file}?t=${Date.now()}`;
     modalImage.alt = `Waveform ${entry.n} ${entry.name}`;
     modalCaption.textContent = getWaveCaption(entry);
 }
@@ -119,7 +116,7 @@ function setWavePreviewFromControl(control) {
     const image = document.getElementById(control.dataset.wavePreview);
 
     if (image) {
-        image.src = `${WAVEFORM_BASE_PATH}${entry.file}`;
+        image.src = `${WAVEFORM_BASE_PATH}${entry.file}?t=${Date.now()}`;
         image.alt = `Waveform ${entry.n} ${entry.name}`;
     }
 

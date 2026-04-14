@@ -561,7 +561,7 @@ a {
     object-fit: contain;
     border: 1px solid #2f3849;
     border-radius: 2px;
-    background: #ffffff;
+    background: #1f2025;
 }
 
 .wave-preview p {
@@ -623,7 +623,7 @@ a {
     object-fit: contain;
     border: 1px solid #2f3849;
     border-radius: 3px;
-    background: #ffffff;
+    background: #1f2025;
 }
 
 #wave-modal-close {
