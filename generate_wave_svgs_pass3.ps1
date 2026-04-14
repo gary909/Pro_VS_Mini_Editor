@@ -153,8 +153,17 @@ foreach ($w in $waves) {
 
     $svg = @"
 <svg xmlns="http://www.w3.org/2000/svg" width="$svgWidth" height="$svgHeight" viewBox="0 0 $svgWidth $svgHeight" role="img" aria-label="Waveform $($w.N) $($w.Name)">
-  <rect x="0" y="0" width="$svgWidth" height="$svgHeight" fill="#ffffff"/>
-  <polyline points="$(($pts -join ' '))" fill="none" stroke="#111111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="$svgWidth" height="$svgHeight" fill="#1f2025"/>
+  <polyline points="$(($pts -join ' '))" fill="none" stroke="#1fdcf5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
 </svg>
 "@
 
