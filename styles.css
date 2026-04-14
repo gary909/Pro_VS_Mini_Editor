@@ -332,6 +332,10 @@ a {
     height: 60px;
 }
 
+.voice-box .parameter-row.voice-tune-row::after {
+    height: 60px;
+}
+
 .voice-box .parameter-row.voice-tune-row > input[type="range"] {
     height: 58px;
 }
@@ -412,9 +416,9 @@ a {
         repeating-linear-gradient(
             180deg,
             transparent 0px,
-            transparent 8.5px,
-            #808080 8.5px,
-            #808080 10px
+            transparent 7px,
+            #808080 7px,
+            #808080 8.5px
         );
     box-shadow: none;
     z-index: 0;
