@@ -107,7 +107,7 @@ a {
 #midi-output-select {
     background-color: #11141b;
     border: 2px solid #293040;
-    color: #6EE9FA; /* Screen text color */
+    color: #1fdcf5; /* Screen text color */
     text-shadow: rgba(110, 233, 250, 0.5) 1px 0 8px; /* set glow of text */
     font-family: "VT323", monospace;
     font-size: 23px;
