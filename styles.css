@@ -294,9 +294,9 @@ a {
 
 .voice-box .wave-preview {
     position: relative;
-    width: 44%; /* set the wave display box width */
-    margin: 12px auto -38px;
-    transform: translateX(-16px); /* shift the wave display box to the left */
+    width: 90px; /* set the wave display box width prev: 44% */
+    margin: 12px auto -34px;
+    transform: translateX(-18px); /* shift the wave display box to the left */
     padding: 3px;
     z-index: 3;
 }
