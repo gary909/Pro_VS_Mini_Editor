@@ -60,7 +60,8 @@ h2 {
 }
 
 h3 {
-    font-size: 17px;
+    font-size: 15px;
+    font-weight: 200;
     color: #dce8ff;
     background-color: var(--accent);
     border-radius: 4px 4px 0 0;
@@ -403,17 +404,17 @@ a {
     bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
-    width: 24px;
+    width: 16px;
     height: 98px;
     border-radius: 0;
     border: none;
     background:
         repeating-linear-gradient(
             180deg,
-            white 0px,
-            white 1.5px,
-            transparent 1.5px,
-            transparent 10px
+            transparent 0px,
+            transparent 8.5px,
+            white 8.5px,
+            white 10px
         ),
         linear-gradient(
             90deg,
