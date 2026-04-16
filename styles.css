@@ -141,7 +141,7 @@ a {
     align-items: center;
     gap: 8px;
     margin-top: -25px; /* move the patch buttons upwards to align with the header */
-    margin-right: 40px;
+    /* margin-right: 40px; */
 }
 
 #init-patch-button,
@@ -174,6 +174,7 @@ a {
     display: grid;
     grid-template-columns: repeat(6, auto);
     justify-content: center;
+    justify-items: end;
     gap: 12px;
     padding: 12px 0;
 }
@@ -259,24 +260,30 @@ a {
     max-width: 200px;
 }
 
+/* LFO 1 (col 4) matches Effects box width */
+.rack-frame > section:nth-child(4) {
+    min-width: 240px;
+    max-width: 240px;
+}
+
 .effects-box {
     min-width: 240px;
     max-width: 240px;
 }
 
 .filter-box {
-    min-width: 170px;
-    max-width: 170px;
+    min-width: 200px;
+    max-width: 200px;
 }
 
 .amp-env-box {
-    min-width: 170px;
-    max-width: 170px;
+    min-width: 200px;
+    max-width: 200px;
 }
 
 .filter-env-box {
-    min-width: 170px;
-    max-width: 170px;
+    min-width: 200px;
+    max-width: 200px;
 }
 
 /* Desktop 2-row layout:
@@ -865,7 +872,6 @@ body.privacy-page .control-box p {
 
     .patch-button-group {
         margin-top: 0;
-        margin-right: 0;
     }
 
     .rack-frame {
