@@ -654,11 +654,21 @@ a {
     width: 24px;
     height: 10px;
     border-radius: 2px;
-    border: 1px solid #1b1e25;
-    background: linear-gradient(180deg, #000 0%, #000 44%, white 44%, white 56%, #000 56%, #000 100%);
+    border: 1px solid #0d1018;
+    border-top-color: #5a6070;
+    background: linear-gradient(180deg,
+        #7a8090 0%,
+        #50566a 18%,
+        #2e3248 40%,
+        #222640 43%,
+        #e4e4e8 44%, #e4e4e8 56%,
+        #1e2236 57%,
+        #14182a 80%,
+        #0c1018 100%
+    );
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.18),
-        0 1px 3px rgba(0, 0, 0, 0.55);
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 2px 5px rgba(0, 0, 0, 0.7);
 }
 /* Firefox */
 .control-box input[type="range"]::-moz-range-track {
@@ -671,11 +681,21 @@ a {
     width: 24px;
     height: 10px;
     border-radius: 2px;
-    border: 1px solid #1b1e25;
-    background: linear-gradient(180deg, #000 0%, #000 44%, white 44%, white 56%, #000 56%, #000 100%);
+    border: 1px solid #0d1018;
+    border-top-color: #5a6070;
+    background: linear-gradient(180deg,
+        #7a8090 0%,
+        #50566a 18%,
+        #2e3248 40%,
+        #222640 43%,
+        #e4e4e8 44%, #e4e4e8 56%,
+        #1e2236 57%,
+        #14182a 80%,
+        #0c1018 100%
+    );
     box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.18),
-        0 1px 3px rgba(0, 0, 0, 0.55);
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hamburger-menu {
