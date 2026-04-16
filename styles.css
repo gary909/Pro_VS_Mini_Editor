@@ -858,6 +858,10 @@ body.privacy-page .control-box p {
         min-width: 220px;
     }
 
+    .patch-button-group {
+        margin-top: 0;
+    }
+
     .rack-frame {
         display: flex;
         flex-direction: column;
