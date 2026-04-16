@@ -233,6 +233,16 @@ a {
     pointer-events: none;
 }
 
+.voice-box .parameter-row.voice-tune-row {
+    transform: translateX(-6px);
+}
+.voice-box .slider-row .parameter-row.voice-tune-row:first-child {
+    margin-right: 6px;
+}
+.voice-box .slider-row .parameter-row:not(.voice-tune-row) {
+    transform: translateX(8px);
+}
+
 .voice-box .slider-row {
     min-height: 116px;
     padding-top: 4px;
@@ -279,6 +289,33 @@ a {
 .amp-env-box {
     min-width: 200px;
     max-width: 200px;
+}
+
+.amp-env-box .slider-row,
+.filter-env-box .slider-row {
+    gap: 20px;
+}
+
+.filter-box .slider-row {
+    gap: 18px;
+}
+
+.filter-box .slider-row .parameter-row:last-child {
+    margin-left: 10px;
+}
+
+.lfo-box .slider-row {
+    gap: 15px;
+}
+
+/* LFO 1 gets extra slider spacing to fill its wider box */
+.rack-frame > section:nth-child(4) .slider-row {
+    gap: 16px;
+}
+
+/* Move RATE (2nd item) slightly right to reduce gap before AMT */
+.rack-frame > section:nth-child(4) .slider-row .parameter-row:nth-child(2) {
+    margin-left: 16px;
 }
 
 .filter-env-box {
