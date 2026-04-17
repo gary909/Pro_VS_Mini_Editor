@@ -713,12 +713,12 @@ a {
     width: 30px;
     height: 4px;
     border-radius: 2px;
-    background-color: #313236;
+    background-color: #ababab;
     transition: background-color 0.2s ease;
 }
 
 .hamburger-menu:hover .bar {
-    background-color: #4f5669;
+    background-color: rgb(179, 184, 200);
 }
 
 .side-nav {
