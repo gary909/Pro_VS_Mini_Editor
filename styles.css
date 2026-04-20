@@ -133,6 +133,9 @@ a {
 #patch-controls {
     display: flex;
     gap: 44px; /* space between INIT/RAND buttons and MIDI status */
+    width: 300px;
+    flex-shrink: 0;
+    justify-content: flex-end;
 }
 
 .patch-button-group {
