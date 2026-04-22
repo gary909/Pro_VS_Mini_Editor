@@ -132,10 +132,10 @@ a {
 
 #patch-controls {
     display: flex;
-    gap: 44px; /* space between INIT/RAND buttons and MIDI status */
-    width: 300px;
+    gap: 26px;
     flex-shrink: 0;
     justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .patch-button-group {
@@ -148,7 +148,11 @@ a {
 }
 
 #init-patch-button,
-#random-patch-button {
+#random-patch-button,
+#syn-1-button,
+#syn-2-button,
+#syn-3-button,
+#syn-4-button {
     width: 22px;
     height: 34px;
     background: #1e66d3;
@@ -159,7 +163,11 @@ a {
 }
 
 #init-patch-button:hover,
-#random-patch-button:hover {
+#random-patch-button:hover,
+#syn-1-button:hover,
+#syn-2-button:hover,
+#syn-3-button:hover,
+#syn-4-button:hover {
     border-color: var(--accent);
 }
 
