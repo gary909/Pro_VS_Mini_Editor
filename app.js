@@ -145,27 +145,39 @@ function getRandomInt(min, max) {
 }
 
 function getWaveName(value) {
-    if (value <= 42) {
+    if (value <= 25) {
         return "TRIANGLE";
     }
-    if (value <= 85) {
-        return "SQUARE";
+    if (value <= 51) {
+        return "S&H";
     }
-    return "SAW";
+    if (value <= 76) {
+        return "RAMP";
+    }
+    if (value <= 102) {
+        return "SAW";
+    }
+    return "SQUARE";
 }
 
 function getWaveIndexFromValue(value) {
-    if (value <= 42) {
+    if (value <= 25) {
         return 0;
     }
-    if (value <= 85) {
+    if (value <= 51) {
         return 1;
     }
-    return 2;
+    if (value <= 76) {
+        return 2;
+    }
+    if (value <= 102) {
+        return 3;
+    }
+    return 4;
 }
 
 function getWaveValueFromIndex(index) {
-    const mappedValues = [0, 64, 127];
+    const mappedValues = [0, 32, 64, 96, 127];
     return mappedValues[index] ?? 0;
 }
 
@@ -410,7 +422,7 @@ function setupWaveCycleButtons() {
 
             const currentValue = parseInt(control.value, 10);
             const currentIndex = getWaveIndexFromValue(currentValue);
-            const nextIndex = (currentIndex + 1) % 3;
+            const nextIndex = (currentIndex + 1) % 5;
             const nextValue = getWaveValueFromIndex(nextIndex);
             const cc = parseInt(control.dataset.cc, 10);
             const label = control.dataset.label || control.id.toUpperCase();

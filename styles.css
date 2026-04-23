@@ -437,6 +437,20 @@ a {
     top: 12px; /* increase this to move group downwards, decrease to move upwards */
 }
 
+.lfo-box .wave-cycle-wrap {
+    top: 4px; /* LFO wave cycle group is closer to its sliders, so it gets less top offset than the voice boxes */
+}
+
+.lfo-box .wave-cycle-button {
+    position: relative;
+    top: 16px; /* move button downward */
+}
+
+.lfo-box .wave-cycle-line {
+    position: relative;
+    top: -5px; /* move line svg downward; adjust as needed */
+}
+
 .wave-cycle-button {
     width: 22px;
     height: 34px;
