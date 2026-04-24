@@ -983,3 +983,89 @@ body.privacy-page .control-box p {
         flex-shrink: 0;
     }
 }
+
+/* ************** Footer Disclaimer Styling ******* */
+#footer-disclaimer {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 12px 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
+
+#footer-disclaimer.is-hidden {
+    display: none;
+}
+
+#footer-disclaimer p {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-family: 'Orbitron', sans-serif;
+    color: #b7c0d3;
+}
+
+#footer-disclaimer a {
+    color: #EBA85B;
+    text-decoration: none;
+}
+
+#footer-disclaimer-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #b7c0d3;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+#footer-disclaimer-close:hover {
+    color: #EBA85B;
+}
+
+@media (max-width: 1200px) {
+    #footer-disclaimer {
+        position: relative;
+        margin: 10px auto 0;
+        margin-bottom: 5px;
+        transform: none;
+        left: auto;
+    }
+}
+
+@media (min-width: 1201px) {
+    #footer-disclaimer {
+        position: fixed;
+        bottom: 20px;
+        z-index: 999;
+    }
+}
+
+#version-number {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-family: 'Orbitron', sans-serif;
+    color: #b7c0d342;
+    text-align: center;
+}
+
+@media (min-width: 1201px) {
+    #version-number {
+        position: fixed;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        margin: 0;
+    }
+}
+/* ************** End of Footer Disclaimer Styling ******* */
