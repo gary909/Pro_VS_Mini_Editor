@@ -30,14 +30,14 @@ const INIT_VALUES = {
     "filter-release": 0,
     "chorus-depth": 0,
     "chorus-rate": 0,
-    "voice-a-fine": 50,
-    "voice-b-fine": 50,
-    "voice-c-fine": 50,
-    "voice-d-fine": 50,
-    "voice-a-coarse": 50,
-    "voice-b-coarse": 50,
-    "voice-c-coarse": 50,
-    "voice-d-coarse": 50
+    "voice-a-fine": 0,
+    "voice-b-fine": 0,
+    "voice-c-fine": 0,
+    "voice-d-fine": 0,
+    "voice-a-coarse": 0,
+    "voice-b-coarse": 0,
+    "voice-c-coarse": 0,
+    "voice-d-coarse": 0
 };
 
 const WAVEFORM_BASE_PATH = "waveforms_svg_pass3/";
