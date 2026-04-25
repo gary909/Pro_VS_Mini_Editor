@@ -928,7 +928,7 @@ body.privacy-page .control-box p {
 
 
 
-@media (max-width: 860px) {
+@media (max-width: 1159px) {
     #main-header {
         flex-direction: column;
         gap: 10px;
