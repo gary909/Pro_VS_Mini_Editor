@@ -785,6 +785,14 @@ a {
     margin-bottom: 2px;
 }
 
+.nav-synth-img {
+    display: block;
+    width: 70%;
+    height: auto;
+    margin: 10px auto;
+    opacity: 0.9;
+}
+
 .accordion-header {
     width: 100%;
     border: none;
