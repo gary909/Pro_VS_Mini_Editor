@@ -540,6 +540,75 @@ function closeAboutModal() {
     aboutModal.setAttribute("aria-hidden", "true");
 }
 
+function setupNavSynth() {
+    const navWrap = document.querySelector('.nav-synth-wrap');
+    if (!navWrap) return;
+    const imgs = Array.from(navWrap.querySelectorAll('.nav-synth-img'));
+    // Degrees offset per ghost layer (matching previous -0.05s and -0.1s delays on 12s/360° cycle)
+    const OFFSETS = [0, 1.5, 3];
+    const SPEED = 30;        // deg/s  (360° / 12s)
+    const TILT = 12;         // peak rotateX degrees
+    const RETURN_DUR = 0.8;  // seconds to ease back to 0°
+
+    let angle = 0;
+    let spinning = false;
+    let rafId = null;
+    let lastTime = null;
+
+    function applyTransforms(a) {
+        imgs.forEach((img, i) => {
+            const a2 = ((a + OFFSETS[i]) % 360 + 360) % 360;
+            const tiltX = TILT * Math.sin((a2 * Math.PI) / 180);
+            img.style.transform = `perspective(300px) rotateY(${a2}deg) rotateX(${tiltX}deg)`;
+        });
+    }
+
+    function spinLoop(ts) {
+        if (lastTime == null) lastTime = ts;
+        const dt = (ts - lastTime) / 1000;
+        lastTime = ts;
+        angle = (angle + SPEED * dt) % 360;
+        applyTransforms(angle);
+        if (spinning) rafId = requestAnimationFrame(spinLoop);
+    }
+
+    function returnToZero() {
+        const remainder = ((angle % 360) + 360) % 360;
+        const startAngle = angle;
+        // Take the shortest arc back to 0°
+        const target = remainder <= 180 ? startAngle - remainder : startAngle + (360 - remainder);
+        const startTime = performance.now();
+
+        function returnLoop(ts) {
+            if (spinning) return;
+            const t = Math.min((ts - startTime) / 1000 / RETURN_DUR, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            angle = startAngle + (target - startAngle) * eased;
+            applyTransforms(angle);
+            if (t < 1) {
+                rafId = requestAnimationFrame(returnLoop);
+            } else {
+                angle = 0;
+                applyTransforms(0);
+            }
+        }
+        rafId = requestAnimationFrame(returnLoop);
+    }
+
+    navWrap.addEventListener('mouseenter', () => {
+        spinning = true;
+        if (rafId) cancelAnimationFrame(rafId);
+        lastTime = null;
+        rafId = requestAnimationFrame(spinLoop);
+    });
+
+    navWrap.addEventListener('mouseleave', () => {
+        spinning = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        returnToZero();
+    });
+}
+
 function setupNavAndModal() {
     const hamburger = document.getElementById("hamburger-menu");
     const sideNav = document.getElementById("side-nav");
@@ -678,6 +747,7 @@ setupWaveCycleButtons();
 setupFxCycleButtons();
 attachControlListeners();
 setupNavAndModal();
+setupNavSynth();
 
 if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);

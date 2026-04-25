@@ -785,12 +785,39 @@ a {
     margin-bottom: 2px;
 }
 
+.nav-synth-wrap {
+    position: relative;
+    width: 70%;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
 .nav-synth-img {
     display: block;
-    width: 70%;
+    width: 100%;
     height: auto;
-    margin: 10px auto;
-    opacity: 0.9;
+}
+
+.nav-synth-img--front {
+    position: relative;
+    z-index: 3;
+    opacity: 0.92;
+}
+
+.nav-synth-img--mid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.4;
+}
+
+.nav-synth-img--back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.2;
 }
 
 .accordion-header {
