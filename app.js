@@ -691,22 +691,22 @@ function onMIDISuccess(midiAccess) {
 
     const syn1Button = document.getElementById("syn-1-button");
     if (syn1Button) {
-        syn1Button.addEventListener("click", () => applyPreset(SYN1_VALUES, "SYN 1: PAD"));
+        syn1Button.addEventListener("click", () => applyPreset(SYN1_VALUES, "SYN 1: Preset 1"));
     }
 
     const syn2Button = document.getElementById("syn-2-button");
     if (syn2Button) {
-        syn2Button.addEventListener("click", () => applyPreset(SYN2_VALUES, "SYN 2: BASS"));
+        syn2Button.addEventListener("click", () => applyPreset(SYN2_VALUES, "SYN 2: Preset 2"));
     }
 
     const syn3Button = document.getElementById("syn-3-button");
     if (syn3Button) {
-        syn3Button.addEventListener("click", () => applyPreset(SYN3_VALUES, "SYN 3: BELL"));
+        syn3Button.addEventListener("click", () => applyPreset(SYN3_VALUES, "SYN 3: Preset 3"));
     }
 
     const syn4Button = document.getElementById("syn-4-button");
     if (syn4Button) {
-        syn4Button.addEventListener("click", () => applyPreset(SYN4_VALUES, "SYN 4: FX"));
+        syn4Button.addEventListener("click", () => applyPreset(SYN4_VALUES, "SYN 4: Preset 4"));
     }
 }
 
