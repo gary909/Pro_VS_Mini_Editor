@@ -547,7 +547,6 @@ function setupNavSynth() {
     // Degrees offset per ghost layer (matching previous -0.05s and -0.1s delays on 12s/360° cycle)
     const OFFSETS = [0, 1.5, 3];
     const SPEED = 30;        // deg/s  (360° / 12s)
-    const TILT = 12;         // peak rotateX degrees
     const RETURN_DUR = 0.8;  // seconds to ease back to 0°
 
     let angle = 0;
@@ -558,8 +557,7 @@ function setupNavSynth() {
     function applyTransforms(a) {
         imgs.forEach((img, i) => {
             const a2 = ((a + OFFSETS[i]) % 360 + 360) % 360;
-            const tiltX = TILT * Math.sin((a2 * Math.PI) / 180);
-            img.style.transform = `perspective(300px) rotateY(${a2}deg) rotateX(${tiltX}deg)`;
+            img.style.transform = `perspective(300px) rotateY(${a2}deg)`;
         });
     }
 
