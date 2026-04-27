@@ -500,6 +500,174 @@ function randomPatch() {
     setTimeout(restoreStatusText, 900);
 }
 
+// SYN 1 — Pad: slow attack, long release, detuned soft waves, chorus, gentle filter
+const SYN1_VALUES = {
+    "voice-a-wave": 37,   // Mellow Dome
+    "voice-b-wave": 67,   // Soft Wave 1
+    "voice-c-wave": 59,   // Soft Dome 3
+    "voice-d-wave": 116,  // Soothing 1
+    "voice-a-fine": 64,   // center
+    "voice-b-fine": 67,   // +3 cents (slight detune)
+    "voice-c-fine": 61,   // -3 cents (slight detune)
+    "voice-d-fine": 69,   // +5 cents
+    "voice-a-coarse": 0,
+    "voice-b-coarse": 0,
+    "voice-c-coarse": 0,
+    "voice-d-coarse": 0,
+    "amp-attack": 70,
+    "amp-decay": 40,
+    "amp-sustain": 99,
+    "amp-release": 80,
+    "filter-cutoff": 72,
+    "filter-resonance": 18,
+    "filter-env-amount": 30,
+    "filter-attack": 60,
+    "filter-decay": 50,
+    "filter-sustain": 80,
+    "filter-release": 70,
+    "lfo1-wave": 0,
+    "lfo1-rate": 28,
+    "lfo1-amt": 12,
+    "lfo2-wave": 0,
+    "lfo2-rate": 14,
+    "lfo2-amt": 8,
+    "chorus-depth": 55,
+    "chorus-rate": 22,
+    "portamento-time": 0,
+    "mod-time": 0,
+    "fx-engine": 0
+};
+
+// SYN 2 — Bass: fast attack, punchy filter env, sawtooth, no chorus
+const SYN2_VALUES = {
+    "voice-a-wave": 33,   // Sawtooth
+    "voice-b-wave": 34,   // Square
+    "voice-c-wave": 51,   // Limp Saw
+    "voice-d-wave": 126,  // Silence (3-voice bass)
+    "voice-a-fine": 64,
+    "voice-b-fine": 62,   // slight detune
+    "voice-c-fine": 66,
+    "voice-d-fine": 64,
+    "voice-a-coarse": 0,
+    "voice-b-coarse": 0,
+    "voice-c-coarse": 0,
+    "voice-d-coarse": 0,
+    "amp-attack": 0,
+    "amp-decay": 35,
+    "amp-sustain": 70,
+    "amp-release": 15,
+    "filter-cutoff": 55,
+    "filter-resonance": 40,
+    "filter-env-amount": 65,
+    "filter-attack": 0,
+    "filter-decay": 30,
+    "filter-sustain": 20,
+    "filter-release": 20,
+    "lfo1-wave": 0,
+    "lfo1-rate": 0,
+    "lfo1-amt": 0,
+    "lfo2-wave": 0,
+    "lfo2-rate": 0,
+    "lfo2-amt": 0,
+    "chorus-depth": 0,
+    "chorus-rate": 0,
+    "portamento-time": 8,
+    "mod-time": 0,
+    "fx-engine": 0
+};
+
+// SYN 3 — Bell: fast attack, medium decay, low sustain, sine/dome waves
+const SYN3_VALUES = {
+    "voice-a-wave": 32,   // Sine
+    "voice-b-wave": 2,    // Xylophone
+    "voice-c-wave": 16,   // Peal
+    "voice-d-wave": 35,   // Dome 1
+    "voice-a-fine": 64,
+    "voice-b-fine": 64,
+    "voice-c-fine": 70,   // slight inharmonic detune
+    "voice-d-fine": 58,
+    "voice-a-coarse": 0,
+    "voice-b-coarse": 0,
+    "voice-c-coarse": 12, // octave-ish upper partial
+    "voice-d-coarse": 0,
+    "amp-attack": 0,
+    "amp-decay": 75,
+    "amp-sustain": 20,
+    "amp-release": 60,
+    "filter-cutoff": 99,
+    "filter-resonance": 10,
+    "filter-env-amount": 50,
+    "filter-attack": 0,
+    "filter-decay": 55,
+    "filter-sustain": 10,
+    "filter-release": 50,
+    "lfo1-wave": 0,
+    "lfo1-rate": 0,
+    "lfo1-amt": 0,
+    "lfo2-wave": 0,
+    "lfo2-rate": 0,
+    "lfo2-amt": 0,
+    "chorus-depth": 20,
+    "chorus-rate": 18,
+    "portamento-time": 0,
+    "mod-time": 0,
+    "fx-engine": 0
+};
+
+// SYN 4 — FX: noise/trashy waves, heavy LFO, long release, chaos
+const SYN4_VALUES = {
+    "voice-a-wave": 118,  // Space Wave
+    "voice-b-wave": 7,    // Chaos 1
+    "voice-c-wave": 127,  // White Noise
+    "voice-d-wave": 52,   // Spark Wave 1
+    "voice-a-fine": 64,
+    "voice-b-fine": 50,
+    "voice-c-fine": 78,
+    "voice-d-fine": 55,
+    "voice-a-coarse": 0,
+    "voice-b-coarse": 0,
+    "voice-c-coarse": 0,
+    "voice-d-coarse": 0,
+    "amp-attack": 20,
+    "amp-decay": 60,
+    "amp-sustain": 60,
+    "amp-release": 90,
+    "filter-cutoff": 60,
+    "filter-resonance": 65,
+    "filter-env-amount": 75,
+    "filter-attack": 30,
+    "filter-decay": 80,
+    "filter-sustain": 30,
+    "filter-release": 85,
+    "lfo1-wave": 85,      // SAW range
+    "lfo1-rate": 55,
+    "lfo1-amt": 45,
+    "lfo2-wave": 43,      // SQR range
+    "lfo2-rate": 20,
+    "lfo2-amt": 35,
+    "chorus-depth": 80,
+    "chorus-rate": 50,
+    "portamento-time": 30,
+    "mod-time": 0,
+    "fx-engine": 0
+};
+
+function applyPreset(values, statusLabel) {
+    ALL_CONTROLS.forEach((control) => {
+        const cc = parseInt(control.dataset.cc, 10);
+        const fallbackValue = Object.prototype.hasOwnProperty.call(INIT_VALUES, control.id)
+            ? INIT_VALUES[control.id]
+            : (control.id.includes("sustain") ? parseInt(control.max, 10) : 0);
+        const value = Object.prototype.hasOwnProperty.call(values, control.id) ? values[control.id] : fallbackValue;
+        control.value = value;
+        sendMidiCC(cc, value);
+        setWavePreviewFromControl(control);
+    });
+
+    updateTempStatus(statusLabel);
+    setTimeout(restoreStatusText, 900);
+}
+
 function onMIDISuccess(midiAccess) {
     populateOutputDevices(midiAccess);
     midiAccess.addEventListener("statechange", () => populateOutputDevices(midiAccess));
@@ -519,6 +687,26 @@ function onMIDISuccess(midiAccess) {
     const randomButton = document.getElementById("random-patch-button");
     if (randomButton) {
         randomButton.addEventListener("click", randomPatch);
+    }
+
+    const syn1Button = document.getElementById("syn-1-button");
+    if (syn1Button) {
+        syn1Button.addEventListener("click", () => applyPreset(SYN1_VALUES, "SYN 1: PAD"));
+    }
+
+    const syn2Button = document.getElementById("syn-2-button");
+    if (syn2Button) {
+        syn2Button.addEventListener("click", () => applyPreset(SYN2_VALUES, "SYN 2: BASS"));
+    }
+
+    const syn3Button = document.getElementById("syn-3-button");
+    if (syn3Button) {
+        syn3Button.addEventListener("click", () => applyPreset(SYN3_VALUES, "SYN 3: BELL"));
+    }
+
+    const syn4Button = document.getElementById("syn-4-button");
+    if (syn4Button) {
+        syn4Button.addEventListener("click", () => applyPreset(SYN4_VALUES, "SYN 4: FX"));
     }
 }
 
