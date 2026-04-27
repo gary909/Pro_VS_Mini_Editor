@@ -136,6 +136,7 @@ a {
     flex-shrink: 0;
     justify-content: flex-end;
     align-items: flex-start;
+    margin-right: 40px;
 }
 
 .patch-button-group {
