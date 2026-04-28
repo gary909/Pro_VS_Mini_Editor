@@ -395,9 +395,6 @@ function attachControlListeners() {
             setWavePreviewFromControl(control);
         });
 
-        // control.addEventListener("change", restoreStatusText);
-        // control.addEventListener("mouseup", restoreStatusText);
-        // control.addEventListener("touchend", restoreStatusText, { passive: true });
     });
 }
 
