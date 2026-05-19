@@ -820,6 +820,10 @@ a {
     opacity: 0.2;
 }
 
+.nav-synth-wrap--small {
+    width: 35%;
+}
+
 .accordion-header {
     width: 100%;
     border: none;

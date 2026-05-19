@@ -792,6 +792,34 @@ function setupNavSynth() {
     });
 }
 
+function setupAboutSynth() {
+    const aboutWrap = document.querySelector('#about-modal .nav-synth-wrap');
+    if (!aboutWrap) return;
+    const imgs = Array.from(aboutWrap.querySelectorAll('.nav-synth-img'));
+    const OFFSETS = [0, 1.5, 3];
+    const SPEED = 30;
+    let angle = 0;
+    let lastTime = null;
+
+    function applyTransforms(a) {
+        imgs.forEach((img, i) => {
+            const a2 = ((a + OFFSETS[i]) % 360 + 360) % 360;
+            img.style.transform = `perspective(300px) rotateY(${a2}deg)`;
+        });
+    }
+
+    function spinLoop(ts) {
+        if (lastTime == null) lastTime = ts;
+        const dt = (ts - lastTime) / 1000;
+        lastTime = ts;
+        angle = (angle + SPEED * dt) % 360;
+        applyTransforms(angle);
+        requestAnimationFrame(spinLoop);
+    }
+
+    requestAnimationFrame(spinLoop);
+}
+
 function setupNavAndModal() {
     const hamburger = document.getElementById("hamburger-menu");
     const sideNav = document.getElementById("side-nav");
@@ -931,6 +959,7 @@ setupFxCycleButtons();
 attachControlListeners();
 setupNavAndModal();
 setupNavSynth();
+setupAboutSynth();
 
 if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
