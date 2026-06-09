@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gary909.github.io/Pro_VS_Mini_Editor/sitemap.xml
